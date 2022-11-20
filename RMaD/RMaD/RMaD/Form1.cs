@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RMaD.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,23 @@ using System.Windows.Forms;
 
 namespace RMaD
 {
-    public partial class Form1 : Form
+    public partial class RMaD : Form
     {
-        public Form1()
+        public RMaD()
         {
             InitializeComponent();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            
+            var auth = new Authentication(this.tbUsername.Text, this.tbPassword.Text);
+            var ux = new UxForm();
+            ux.Location = this.Location;
+            ux.StartPosition = FormStartPosition.Manual;
+            ux.Show();
+            //frm.FormClosing += delegate { this.Show(); };
+            this.Hide();
         }
     }
 }
