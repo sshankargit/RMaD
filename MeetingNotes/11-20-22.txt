@@ -1,0 +1,55 @@
+Tasks to finish
+-Create class skeletons(Josh)
+-Add database to class(Shankar)
+-Security(hash passwords/data passed to database)(md5/sha-2.0) (Roya)
+-error handling (Roya)
+-Finish UI for Forms (Josh)
+-fetch data from database to UI (Shankar)
+-sending emails (Anyone)
+-recieving emails (Anyone)
+-scraping data from emails (Anyone)
+-connect classes (Josh/Shankar)
+-work on instructions(pdf) (Roya)
+-create new package within a form 
+-Login Process (Josh/Shankar)
+-Package Creation Process 
+-Refresh Button tasks (Josh)
+-New Package Button (Josh)
+-Reports (Roya)
+-Settings Screen (Roya)
+
+-bug fixes
+
+Login Process:
+create user
+login to program
+connect to api with api login
+store api login to user
+get current status of packages
+add changes to database
+display package changes
+
+Package Creation Process:
+create a record within a form
+adds to database
+creates email/email group
+send email
+
+Types of emails possible to send:
+Confirm Monitoring
+Package Location*
+Delivery Confirmation
+Group Confirmation
+
+Email(Class)
+- Different Email Type subclasses
+
+Since Last Meeting:
+Roya: Completed Dummy Data
+Shankar: Completed Database Design
+Joshua: Working on UI Design
+Jake: N/A
+
+Within Scope of Time
+By the submission date we would like to have a default version working for packages and user groups. If we get to a point we
+have more time we will work on adding options for packages such as update options.
