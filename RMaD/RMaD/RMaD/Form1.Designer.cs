@@ -37,12 +37,13 @@ namespace RMaD
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.llHelp = new System.Windows.Forms.LinkLabel();
+            this.btnAccount = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
             this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSubmit.Location = new System.Drawing.Point(218, 232);
+            this.btnSubmit.Location = new System.Drawing.Point(220, 228);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
             this.btnSubmit.TabIndex = 0;
@@ -95,12 +96,23 @@ namespace RMaD
             // llHelp
             // 
             this.llHelp.AutoSize = true;
-            this.llHelp.Location = new System.Drawing.Point(255, 262);
+            this.llHelp.Location = new System.Drawing.Point(255, 291);
             this.llHelp.Name = "llHelp";
             this.llHelp.Size = new System.Drawing.Size(29, 13);
             this.llHelp.TabIndex = 8;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAccount.Location = new System.Drawing.Point(220, 261);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(102, 27);
+            this.btnAccount.TabIndex = 9;
+            this.btnAccount.Text = "Create Account";
+            this.btnAccount.UseVisualStyleBackColor = true;
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // RMaD
             // 
@@ -108,6 +120,7 @@ namespace RMaD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(537, 392);
+            this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.llHelp);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -131,6 +144,7 @@ namespace RMaD
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.LinkLabel llHelp;
+        private System.Windows.Forms.Button btnAccount;
     }
 }
 
