@@ -43,7 +43,7 @@ namespace RMaD
             // btnSubmit
             // 
             this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSubmit.Location = new System.Drawing.Point(220, 228);
+            this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
             this.btnSubmit.TabIndex = 0;
@@ -53,14 +53,14 @@ namespace RMaD
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(168, 130);
+            this.tbUsername.Location = new System.Drawing.Point(173, 159);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(211, 20);
             this.tbUsername.TabIndex = 3;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(167, 185);
+            this.tbPassword.Location = new System.Drawing.Point(172, 214);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(211, 20);
             this.tbPassword.TabIndex = 4;
@@ -78,7 +78,7 @@ namespace RMaD
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(150, 114);
+            this.lblUsername.Location = new System.Drawing.Point(155, 143);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 6;
@@ -87,7 +87,7 @@ namespace RMaD
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(149, 169);
+            this.lblPassword.Location = new System.Drawing.Point(154, 198);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 7;
@@ -96,7 +96,7 @@ namespace RMaD
             // llHelp
             // 
             this.llHelp.AutoSize = true;
-            this.llHelp.Location = new System.Drawing.Point(255, 291);
+            this.llHelp.Location = new System.Drawing.Point(260, 320);
             this.llHelp.Name = "llHelp";
             this.llHelp.Size = new System.Drawing.Size(29, 13);
             this.llHelp.TabIndex = 8;
@@ -106,7 +106,7 @@ namespace RMaD
             // btnAccount
             // 
             this.btnAccount.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAccount.Location = new System.Drawing.Point(220, 261);
+            this.btnAccount.Location = new System.Drawing.Point(225, 290);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(102, 27);
             this.btnAccount.TabIndex = 9;
@@ -130,6 +130,7 @@ namespace RMaD
             this.Controls.Add(this.btnSubmit);
             this.Name = "RMaD";
             this.Text = "Receiving Mail Daemon";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RMaD_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

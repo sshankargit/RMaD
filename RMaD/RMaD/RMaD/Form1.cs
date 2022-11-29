@@ -18,29 +18,29 @@ namespace RMaD
             InitializeComponent();
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        public void btnSubmit_Click(object sender, EventArgs e)
         {
             // authenticate login
             // pull user and data
             // check api and pull data if status or delivery time has changed
             // load ui forms
 
-            var auth = new Authentication(this.tbUsername.Text, this.tbPassword.Text);
-            var ux = new UxForm();
-            ux.Location = this.Location;
-            ux.StartPosition = FormStartPosition.Manual;
-            ux.Show();
-            this.Hide();
+            // for testing purposed login will not be checked
+            
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            var create = new CreateAccount();
-            create.Location = this.Location;
-            create.StartPosition = FormStartPosition.Manual;
-            create.Show();
-            create.FormClosing += delegate { this.Show(); };
-            this.Hide();
+            var newAccount = new CreateAccount();
+            newAccount.Location = this.Location;
+            newAccount.StartPosition = FormStartPosition.Manual;
+            newAccount.ShowDialog();
+        }
+
+        private void RMaD_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }

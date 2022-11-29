@@ -45,7 +45,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(121, 228);
+            this.lblUsername.Location = new System.Drawing.Point(35, 188);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 0;
@@ -54,7 +54,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(121, 274);
+            this.lblPassword.Location = new System.Drawing.Point(35, 234);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 1;
@@ -63,7 +63,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(121, 322);
+            this.lblEmail.Location = new System.Drawing.Point(35, 282);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 2;
@@ -72,7 +72,7 @@
             // lblFirstname
             // 
             this.lblFirstname.AutoSize = true;
-            this.lblFirstname.Location = new System.Drawing.Point(121, 132);
+            this.lblFirstname.Location = new System.Drawing.Point(35, 92);
             this.lblFirstname.Name = "lblFirstname";
             this.lblFirstname.Size = new System.Drawing.Size(55, 13);
             this.lblFirstname.TabIndex = 3;
@@ -81,7 +81,7 @@
             // lblLastname
             // 
             this.lblLastname.AutoSize = true;
-            this.lblLastname.Location = new System.Drawing.Point(121, 182);
+            this.lblLastname.Location = new System.Drawing.Point(35, 142);
             this.lblLastname.Name = "lblLastname";
             this.lblLastname.Size = new System.Drawing.Size(56, 13);
             this.lblLastname.TabIndex = 4;
@@ -90,7 +90,7 @@
             // lblCreateAccount
             // 
             this.lblCreateAccount.AutoSize = true;
-            this.lblCreateAccount.Location = new System.Drawing.Point(283, 76);
+            this.lblCreateAccount.Location = new System.Drawing.Point(197, 36);
             this.lblCreateAccount.Name = "lblCreateAccount";
             this.lblCreateAccount.Size = new System.Drawing.Size(81, 13);
             this.lblCreateAccount.TabIndex = 5;
@@ -98,42 +98,42 @@
             // 
             // tbFirstname
             // 
-            this.tbFirstname.Location = new System.Drawing.Point(220, 129);
+            this.tbFirstname.Location = new System.Drawing.Point(134, 89);
             this.tbFirstname.Name = "tbFirstname";
             this.tbFirstname.Size = new System.Drawing.Size(260, 20);
             this.tbFirstname.TabIndex = 6;
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(220, 221);
+            this.tbUsername.Location = new System.Drawing.Point(134, 181);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(260, 20);
             this.tbUsername.TabIndex = 7;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(220, 267);
+            this.tbPassword.Location = new System.Drawing.Point(134, 227);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(260, 20);
             this.tbPassword.TabIndex = 8;
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(220, 315);
+            this.tbEmail.Location = new System.Drawing.Point(134, 275);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(260, 20);
             this.tbEmail.TabIndex = 9;
             // 
             // tbLastname
             // 
-            this.tbLastname.Location = new System.Drawing.Point(220, 175);
+            this.tbLastname.Location = new System.Drawing.Point(134, 135);
             this.tbLastname.Name = "tbLastname";
             this.tbLastname.Size = new System.Drawing.Size(260, 20);
             this.tbLastname.TabIndex = 10;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(286, 381);
+            this.btnSubmit.Location = new System.Drawing.Point(200, 341);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 11;
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 474);
+            this.ClientSize = new System.Drawing.Size(472, 437);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tbLastname);
             this.Controls.Add(this.tbEmail);
