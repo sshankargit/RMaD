@@ -1,0 +1,24 @@
+Final Submission (Dec 12)
+
+Critical:
+Work on Connecting API
+Adding Classes
+Testing Data Transfers
+
+How the system should work:
+User will Create Trackhive account
+Login to program using Tackhive account
+Send Tracking Number to program using email
+Add tracking to api
+Pull new tracked item
+use async to check for changes in the current_status
+
+groups are collected via tracking
+send emails via email groups
+
+email group table
+-group #
+-group members
+-user emails
+
+Dummy data tested and should work
