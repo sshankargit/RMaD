@@ -22,11 +22,11 @@ namespace RMaD.Classes
             this._password = password;
         }
 
-        public void login()
+        public static void login()
         {
 
         }
-        public void logout() 
+        public static void logout() 
         { 
 
         }
