@@ -20,16 +20,21 @@ namespace RMaD
             Application.SetCompatibleTextRenderingDefault(false);
             RMaD login = new RMaD();
             var result = new DialogResult();
+
             while (logging == true)
             {
-                if (login.ShowDialog() == DialogResult.OK)
+                if (result == DialogResult.OK || result == DialogResult.Cancel)
                 {
-                    logging  = false;
-                    result = DialogResult.OK;
+                    logging = false;
+                    login.Close();
+                }
+                else
+                {
+                    result = login.ShowDialog();
                 }
             }
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 Application.Run(new UxForm());
             }

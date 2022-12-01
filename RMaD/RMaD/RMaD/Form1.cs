@@ -26,9 +26,6 @@ namespace RMaD
             // load ui forms
 
             // for testing purposed login will not be checked
-            
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
@@ -36,11 +33,21 @@ namespace RMaD
             var newAccount = new CreateAccount();
             newAccount.Location = this.Location;
             newAccount.StartPosition = FormStartPosition.Manual;
-            newAccount.ShowDialog();
+            if(newAccount.ShowDialog().Equals(DialogResult.OK))
+            {
+                // add account
+                // else do nothing
+            }
+            this.DialogResult = DialogResult.Retry;
         }
 
         private void RMaD_FormClosed(object sender, FormClosedEventArgs e)
         {
+        }
+
+        private void llHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/CSC-470-Project/RMaD");
         }
     }
 }

@@ -42,7 +42,7 @@ namespace RMaD
             // 
             // btnSubmit
             // 
-            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
@@ -102,10 +102,10 @@ namespace RMaD
             this.llHelp.TabIndex = 8;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
+            this.llHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llHelp_LinkClicked);
             // 
             // btnAccount
             // 
-            this.btnAccount.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAccount.Location = new System.Drawing.Point(225, 290);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(102, 27);

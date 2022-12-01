@@ -31,9 +31,9 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.pnlShipments = new System.Windows.Forms.Panel();
+            this.lblShipments = new System.Windows.Forms.Label();
             this.pnlGroups = new System.Windows.Forms.Panel();
             this.lblGroups = new System.Windows.Forms.Label();
-            this.lblShipments = new System.Windows.Forms.Label();
             this.btnShipmentMenu = new System.Windows.Forms.Button();
             this.btnGroupMenu = new System.Windows.Forms.Button();
             this.btnReportsMenu = new System.Windows.Forms.Button();
@@ -45,11 +45,13 @@ namespace RMaD
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.lblSettins = new System.Windows.Forms.Label();
+            this.eventLog1 = new System.Diagnostics.EventLog();
             this.pnlShipments.SuspendLayout();
             this.pnlGroups.SuspendLayout();
             this.pnlReports.SuspendLayout();
             this.pnlUser.SuspendLayout();
             this.pnlSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlShipments
@@ -60,6 +62,15 @@ namespace RMaD
             this.pnlShipments.Name = "pnlShipments";
             this.pnlShipments.Size = new System.Drawing.Size(550, 670);
             this.pnlShipments.TabIndex = 0;
+            // 
+            // lblShipments
+            // 
+            this.lblShipments.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShipments.Location = new System.Drawing.Point(30, 27);
+            this.lblShipments.Name = "lblShipments";
+            this.lblShipments.Size = new System.Drawing.Size(180, 42);
+            this.lblShipments.TabIndex = 0;
+            this.lblShipments.Text = "Shipments";
             // 
             // pnlGroups
             // 
@@ -78,15 +89,6 @@ namespace RMaD
             this.lblGroups.Size = new System.Drawing.Size(127, 42);
             this.lblGroups.TabIndex = 0;
             this.lblGroups.Text = "Groups";
-            // 
-            // lblShipments
-            // 
-            this.lblShipments.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShipments.Location = new System.Drawing.Point(30, 27);
-            this.lblShipments.Name = "lblShipments";
-            this.lblShipments.Size = new System.Drawing.Size(180, 42);
-            this.lblShipments.TabIndex = 0;
-            this.lblShipments.Text = "Shipments";
             // 
             // btnShipmentMenu
             // 
@@ -192,6 +194,10 @@ namespace RMaD
             this.lblSettins.TabIndex = 0;
             this.lblSettins.Text = "Settings";
             // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
             // UxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,6 +221,7 @@ namespace RMaD
             this.pnlReports.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,5 +243,6 @@ namespace RMaD
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.Label lblSettins;
+        private System.Diagnostics.EventLog eventLog1;
     }
 }
