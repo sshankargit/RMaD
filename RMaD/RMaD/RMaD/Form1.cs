@@ -18,6 +18,13 @@ namespace RMaD
             InitializeComponent();
         }
 
+        /// <summary>
+        /// On click will check to see if a login is valid. If the login is valid the
+        /// program will continue with the login process. If the login is invalid the program
+        /// will add an error message and reprompt the user for a login.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void btnSubmit_Click(object sender, EventArgs e)
         {
             // authenticate login
@@ -26,6 +33,8 @@ namespace RMaD
             // load ui forms
 
             // for testing purposed login will not be checked
+            
+            this.Close();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)

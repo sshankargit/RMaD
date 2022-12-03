@@ -30,6 +30,7 @@ namespace RMaD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@ namespace RMaD
             this.lblPassword = new System.Windows.Forms.Label();
             this.llHelp = new System.Windows.Forms.LinkLabel();
             this.btnAccount = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // btnSubmit
@@ -114,6 +116,12 @@ namespace RMaD
             this.btnAccount.UseVisualStyleBackColor = true;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // RMaD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,7 +136,9 @@ namespace RMaD
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.btnSubmit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RMaD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receiving Mail Daemon";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RMaD_FormClosed);
             this.ResumeLayout(false);
@@ -146,6 +156,7 @@ namespace RMaD
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.LinkLabel llHelp;
         private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
