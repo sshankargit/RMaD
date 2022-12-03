@@ -1,7 +1,7 @@
 Tasks to finish
 -Create class skeletons(Josh)
 -Add database to class(Shankar)
--Security(hash passwords/data passed to database)(md5/sha-2.0) (Roya)
+-Security(hash passwords/data passed to database)(md5/sha-2.0/other) (Roya)
 -error handling (Roya)
 -Finish UI for Forms (Josh)
 -fetch data from database to UI (Shankar)

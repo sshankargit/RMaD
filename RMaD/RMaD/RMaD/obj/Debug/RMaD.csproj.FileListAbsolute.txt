@@ -10,3 +10,6 @@ C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.exe
 C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.pdb
 C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.RMaD.resources
 C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.UxForm.resources
+C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.CreateAccount.resources
+C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\bin\Debug\RMaD.xml
+C:\Users\Owner\source\repos\RMaD\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.AddShipment.resources
