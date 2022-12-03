@@ -30,6 +30,7 @@ namespace RMaD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
@@ -38,12 +39,13 @@ namespace RMaD
             this.lblPassword = new System.Windows.Forms.Label();
             this.llHelp = new System.Windows.Forms.LinkLabel();
             this.btnAccount = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
-            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSubmit.Location = new System.Drawing.Point(220, 228);
+            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
             this.btnSubmit.TabIndex = 0;
@@ -53,14 +55,14 @@ namespace RMaD
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(168, 130);
+            this.tbUsername.Location = new System.Drawing.Point(173, 159);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(211, 20);
             this.tbUsername.TabIndex = 3;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(167, 185);
+            this.tbPassword.Location = new System.Drawing.Point(172, 214);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(211, 20);
             this.tbPassword.TabIndex = 4;
@@ -78,7 +80,7 @@ namespace RMaD
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(150, 114);
+            this.lblUsername.Location = new System.Drawing.Point(155, 143);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 6;
@@ -87,7 +89,7 @@ namespace RMaD
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(149, 169);
+            this.lblPassword.Location = new System.Drawing.Point(154, 198);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 7;
@@ -96,23 +98,29 @@ namespace RMaD
             // llHelp
             // 
             this.llHelp.AutoSize = true;
-            this.llHelp.Location = new System.Drawing.Point(255, 291);
+            this.llHelp.Location = new System.Drawing.Point(260, 320);
             this.llHelp.Name = "llHelp";
             this.llHelp.Size = new System.Drawing.Size(29, 13);
             this.llHelp.TabIndex = 8;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
+            this.llHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llHelp_LinkClicked);
             // 
             // btnAccount
             // 
-            this.btnAccount.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAccount.Location = new System.Drawing.Point(220, 261);
+            this.btnAccount.Location = new System.Drawing.Point(225, 290);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(102, 27);
             this.btnAccount.TabIndex = 9;
             this.btnAccount.Text = "Create Account";
             this.btnAccount.UseVisualStyleBackColor = true;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // RMaD
             // 
@@ -128,8 +136,11 @@ namespace RMaD
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.btnSubmit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RMaD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receiving Mail Daemon";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RMaD_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,6 +156,7 @@ namespace RMaD
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.LinkLabel llHelp;
         private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

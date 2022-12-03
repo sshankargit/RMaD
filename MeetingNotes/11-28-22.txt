@@ -1,0 +1,26 @@
+Tasks to finish
+-Create class skeletons(Josh) (11/29)
+-Add database to class(Shankar) (11/29)
+-Security(hash passwords/data passed to database)(md5/sha-2.0/other) (Roya)
+-error handling (Roya/Josh)
+-Finish UI for Forms (Josh) (11/30)
+-fetch data from database to UI (Shankar) (12/3)
+-sending emails to users (Roya)
+-recieving emails/adding shipments from email (Shankar) (12/4)
+-scraping data from emails (Josh)
+-create new package within a form (12/3)
+-Login Process (Josh/Shankar) (12/3)
+-Shipment and shipments expanded (12/3) 
+-connect classes (Josh/Shankar) (12/4)
+-Create Group (Josh) (12/5)
+-Refresh Button tasks (Josh) (12/7)
+-work on instructions(pdf) (Roya) (12/7)
+-Reports (Roya) 
+-Settings Screen (Roya) 
+-Create User Menu (Josh) (12/7)
+-Docker (Josh) (12/8)
+-Create Diployment Process/Rollback Plan (Roya) (12/12)
+
+Possibly Create templates for emails to system or look into ease of getting extra information on a package based on tracking number.
+
+Added Milestones for tasks.

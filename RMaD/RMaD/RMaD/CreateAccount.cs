@@ -24,6 +24,15 @@ namespace RMaD
             // add to database if no conficts
             // display confirmation that account has been created
             // close form after x second timer (test to see what feel right)
+
+            // set to dialog to ok for testing purposes
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
