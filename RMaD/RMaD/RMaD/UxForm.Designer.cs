@@ -47,11 +47,13 @@ namespace RMaD
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.lblSettins = new System.Windows.Forms.Label();
+            this.eventLog1 = new System.Diagnostics.EventLog();
             this.pnlShipments.SuspendLayout();
             this.pnlGroups.SuspendLayout();
             this.pnlReports.SuspendLayout();
             this.pnlUser.SuspendLayout();
             this.pnlSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlShipments
@@ -231,6 +233,10 @@ namespace RMaD
             this.lblSettins.TabIndex = 0;
             this.lblSettins.Text = "Settings";
             // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
             // UxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,6 +261,7 @@ namespace RMaD
             this.pnlReports.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,5 +285,6 @@ namespace RMaD
         private System.Windows.Forms.Label lblSettins;
         private System.Windows.Forms.Button btnAddShipment;
         private System.Windows.Forms.FlowLayoutPanel flpShipments;
+        private System.Diagnostics.EventLog eventLog1;
     }
 }

@@ -104,6 +104,7 @@ namespace RMaD
             this.llHelp.TabIndex = 8;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
+            this.llHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llHelp_LinkClicked);
             // 
             // btnAccount
             // 

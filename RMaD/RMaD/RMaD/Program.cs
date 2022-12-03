@@ -20,6 +20,7 @@ namespace RMaD
             Application.SetCompatibleTextRenderingDefault(false);
             RMaD login = new RMaD();
             var result = new DialogResult();
+
             while (logging == true)
             {
                 if (result == DialogResult.OK || result == DialogResult.Cancel)
@@ -33,7 +34,7 @@ namespace RMaD
                 }
             }
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 Application.Run(new UxForm());
             }
