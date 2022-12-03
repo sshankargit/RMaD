@@ -158,7 +158,9 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateAccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CreateAccount";
             this.ResumeLayout(false);
             this.PerformLayout();

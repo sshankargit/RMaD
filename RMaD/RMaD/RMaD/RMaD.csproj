@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\RMaD.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddShipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddShipment.Designer.cs">
+      <DependentUpon>AddShipment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="CreateAccount.cs">
@@ -68,6 +75,9 @@
     <Compile Include="UxForm.Designer.cs">
       <DependentUpon>UxForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddShipment.resx">
+      <DependentUpon>AddShipment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAccount.resx">
       <DependentUpon>CreateAccount.cs</DependentUpon>
     </EmbeddedResource>
