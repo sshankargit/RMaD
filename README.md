@@ -1,7 +1,7 @@
 ## Team RMaD
 ### Overview
 
-Team RMaD is a parcel tracker written in C#, using [.NETFramework v. 4.6.1](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks?cid=getdotnetsdk) and the [Trackhive API](https://www.trackhive.co/).  This program can track parcels by extracting information from emails about delivery, adding it into a database, creating logs, and giving updates on their parcel.  
+Team RMaD is a parcel tracker written in C#, using [.NETFramework v. 4.6.1 and 4.7.2](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks?cid=getdotnetsdk) and the [Trackhive API](https://www.trackhive.co/).  This program can track parcels by extracting information from emails about delivery, adding it into a database, creating logs, and giving updates on their parcel.  
 
 ## Changelog
 
