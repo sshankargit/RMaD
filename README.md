@@ -14,7 +14,7 @@ Team RMaD is a parcel tracker written in C#, using [.NETFramework v. 4.6.1](http
 
 
 ## Installation
-Please see Wiki for instructions, as well as other information such as code documentation, settings description, and more.
+Check out our [Wiki](https://github.com/scriptkittie/RMaD/wiki/Installation) for instructions, as well as other information such as code documentation, settings description, and more!
 
 ## Issues/Forks
 Please report any issues to the issues section & as always if you have any functionality requests go ahead and open an issue containing your suggestions.
