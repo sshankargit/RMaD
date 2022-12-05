@@ -19,7 +19,8 @@ namespace RMaD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             RMaD login = new RMaD();
-            var result = new DialogResult();
+            //var result = new DialogResult();
+            var result = login.ShowDialog(); //Check if login form is closed
 
             while (logging == true)
             {

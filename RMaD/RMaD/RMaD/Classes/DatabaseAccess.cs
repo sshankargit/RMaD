@@ -13,14 +13,7 @@ namespace RMaD.Classes
         public SQLiteConnection sqlConnection;
         public DatabaseAccess()
         {
-
-            sqlConnection = new SQLiteConnection("Data Source=rmad.db");
-            if (!File.Exists("./rmad.db"))
-            {
-                SQLiteConnection.CreateFile("rmad.db");
-                System.Console.WriteLine("Database created!");
-            }
-
+            sqlConnection = new SQLiteConnection("Data Source=./rmad.db");
         }
         public void OpenConnection()
         {
