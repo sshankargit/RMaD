@@ -48,7 +48,7 @@ namespace RMaD
         private void btnAddShipment_Click(object sender, EventArgs e)
         {
             
-            Shipment newShipment = new Shipment();
+            Shipment newShipment = new Shipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text);
 
             if (string.IsNullOrEmpty(mtbTracking.Text))
             {
@@ -62,13 +62,23 @@ namespace RMaD
                 return;
             }
 
-            List<string> shipment = new List<string>();
-            shipment.Add(mtbTracking.Text);
-            shipment.Add(dtpShipped.Text);
-            shipment.Add(dtpArrival.Text);
-            shipment.Add(tbCarrierdpdn.Text);
-
-            newShipment.addShipment(shipment);        
+            if (newShipment.trackIDExists())
+            {
+                MessageBox.Show("Tracking Number already exists.", "Adding new shipment tracking failed!");
+                return;
+            }
+            else
+            {
+                Boolean addShipment = newShipment.addShipment();
+                if (addShipment)
+                {
+                    MessageBox.Show("Tracking number has been added successfully.", "Add new Shipment!");
+                }
+                else
+                {
+                    MessageBox.Show("Error occured. New Tracking number was not added.", "Add Shipment failed!");
+                }
+            }            
         }
     }
 }
