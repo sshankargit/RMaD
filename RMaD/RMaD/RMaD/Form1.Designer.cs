@@ -30,6 +30,7 @@ namespace RMaD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
@@ -38,11 +39,12 @@ namespace RMaD
             this.lblPassword = new System.Windows.Forms.Label();
             this.llHelp = new System.Windows.Forms.LinkLabel();
             this.btnAccount = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
-            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
@@ -102,10 +104,10 @@ namespace RMaD
             this.llHelp.TabIndex = 8;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
+            this.llHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llHelp_LinkClicked);
             // 
             // btnAccount
             // 
-            this.btnAccount.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnAccount.Location = new System.Drawing.Point(225, 290);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(102, 27);
@@ -113,6 +115,12 @@ namespace RMaD
             this.btnAccount.Text = "Create Account";
             this.btnAccount.UseVisualStyleBackColor = true;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // RMaD
             // 
@@ -128,7 +136,9 @@ namespace RMaD
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.btnSubmit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RMaD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receiving Mail Daemon";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RMaD_FormClosed);
             this.ResumeLayout(false);
@@ -146,6 +156,7 @@ namespace RMaD
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.LinkLabel llHelp;
         private System.Windows.Forms.Button btnAccount;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

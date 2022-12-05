@@ -18,6 +18,13 @@ namespace RMaD
             InitializeComponent();
         }
 
+        /// <summary>
+        /// On click will check to see if a login is valid. If the login is valid the
+        /// program will continue with the login process. If the login is invalid the program
+        /// will add an error message and reprompt the user for a login.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void btnSubmit_Click(object sender, EventArgs e)
         {
             // authenticate login
@@ -25,10 +32,35 @@ namespace RMaD
             // check api and pull data if status or delivery time has changed
             // load ui forms
 
-            // for testing purposed login will not be checked
-            
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            //Validate inputs
+            if (string.IsNullOrEmpty(tbUsername.Text))
+            {
+                MessageBox.Show("Username is required.", "Failed!");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(tbPassword.Text))
+            {
+                MessageBox.Show("Password is required.", "Failed!");
+                return;
+            }
+
+            Authentication loginUser = new Authentication(tbUsername.Text, tbPassword.Text);
+            Boolean loginSuccess= loginUser.login();
+
+            if (loginSuccess)
+            {
+                MessageBox.Show("Login Success!", "Success!");
+                this.Close();
+            }
+            else
+            {
+
+                MessageBox.Show("Login Failed! User name or Password is incorrect.", "Login Failed!");
+                this.Close();                
+                return;
+            }
+
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
@@ -36,11 +68,22 @@ namespace RMaD
             var newAccount = new CreateAccount();
             newAccount.Location = this.Location;
             newAccount.StartPosition = FormStartPosition.Manual;
-            newAccount.ShowDialog();
+            if(newAccount.ShowDialog().Equals(DialogResult.OK))
+            {
+                // add account
+                // else do nothing
+            }
+            this.DialogResult = DialogResult.Retry;
         }
 
         private void RMaD_FormClosed(object sender, FormClosedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void llHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/CSC-470-Project/RMaD");
         }
     }
 }

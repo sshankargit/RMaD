@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RMaD</name>
+    </assembly>
+    <members>
+        <member name="F:RMaD.AddShipment.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.AddShipment.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.AddShipment.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:RMaD.CreateAccount.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.CreateAccount.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.CreateAccount.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:RMaD.RMaD.btnSubmit_Click(System.Object,System.EventArgs)">
+            <summary>
+            On click will check to see if a login is valid. If the login is valid the
+            program will continue with the login process. If the login is invalid the program
+            will add an error message and reprompt the user for a login.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:RMaD.RMaD.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.RMaD.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.RMaD.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:RMaD.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="P:RMaD.UxForm.Shipments">
+            <summary>
+            Counts the amount of shipments in the Flow Layout Panel 
+            countained in the shipments panel
+            </summary>
+        </member>
+        <member name="M:RMaD.UxForm.changePanel(System.Int32)">
+            <summary>
+            Change Panel will show the panel sent to the method and deactivate the button used
+            to change to a new panel. It will then hide the panels that are not in use and will
+            enable the buttons needed to change to those panels.
+            </summary>
+            <param name="panel">Index of panel being changed to</param>
+        </member>
+        <member name="M:RMaD.UxForm.newShipment(System.Int32)">
+            <summary>
+            Creates a new shipment button within the Flow Layout Panel.
+            </summary>
+            <param name="shipNum">The index of the new button</param>
+        </member>
+        <member name="F:RMaD.UxForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.UxForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.UxForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:RMaD.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

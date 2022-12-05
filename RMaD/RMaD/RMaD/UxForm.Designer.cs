@@ -31,9 +31,10 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.pnlShipments = new System.Windows.Forms.Panel();
+            this.btnAddShipment = new System.Windows.Forms.Button();
+            this.lblShipments = new System.Windows.Forms.Label();
             this.pnlGroups = new System.Windows.Forms.Panel();
             this.lblGroups = new System.Windows.Forms.Label();
-            this.lblShipments = new System.Windows.Forms.Label();
             this.btnShipmentMenu = new System.Windows.Forms.Button();
             this.btnGroupMenu = new System.Windows.Forms.Button();
             this.btnReportsMenu = new System.Windows.Forms.Button();
@@ -45,21 +46,48 @@ namespace RMaD
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.lblSettins = new System.Windows.Forms.Label();
+            this.eventLog1 = new System.Diagnostics.EventLog();
+            this.dataGridViewShipment = new System.Windows.Forms.DataGridView();
             this.pnlShipments.SuspendLayout();
             this.pnlGroups.SuspendLayout();
             this.pnlReports.SuspendLayout();
             this.pnlUser.SuspendLayout();
             this.pnlSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipment)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlShipments
             // 
+            this.pnlShipments.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlShipments.Controls.Add(this.dataGridViewShipment);
+            this.pnlShipments.Controls.Add(this.btnAddShipment);
             this.pnlShipments.Controls.Add(this.lblShipments);
             this.pnlShipments.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlShipments.Location = new System.Drawing.Point(77, 2);
             this.pnlShipments.Name = "pnlShipments";
             this.pnlShipments.Size = new System.Drawing.Size(550, 670);
             this.pnlShipments.TabIndex = 0;
+            // 
+            // btnAddShipment
+            // 
+            this.btnAddShipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddShipment.Location = new System.Drawing.Point(31, 599);
+            this.btnAddShipment.Name = "btnAddShipment";
+            this.btnAddShipment.Size = new System.Drawing.Size(126, 43);
+            this.btnAddShipment.TabIndex = 1;
+            this.btnAddShipment.Text = "Add Shipment";
+            this.btnAddShipment.UseVisualStyleBackColor = true;
+            this.btnAddShipment.Click += new System.EventHandler(this.btnAddShipment_Click);
+            // 
+            // lblShipments
+            // 
+            this.lblShipments.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShipments.Location = new System.Drawing.Point(30, 8);
+            this.lblShipments.Name = "lblShipments";
+            this.lblShipments.Size = new System.Drawing.Size(180, 42);
+            this.lblShipments.TabIndex = 0;
+            this.lblShipments.Text = "Shipments";
             // 
             // pnlGroups
             // 
@@ -79,30 +107,28 @@ namespace RMaD
             this.lblGroups.TabIndex = 0;
             this.lblGroups.Text = "Groups";
             // 
-            // lblShipments
-            // 
-            this.lblShipments.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShipments.Location = new System.Drawing.Point(30, 27);
-            this.lblShipments.Name = "lblShipments";
-            this.lblShipments.Size = new System.Drawing.Size(180, 42);
-            this.lblShipments.TabIndex = 0;
-            this.lblShipments.Text = "Shipments";
-            // 
             // btnShipmentMenu
             // 
-            this.btnShipmentMenu.Location = new System.Drawing.Point(12, 12);
+            this.btnShipmentMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShipmentMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.btnShipmentMenu.Location = new System.Drawing.Point(0, 2);
             this.btnShipmentMenu.Name = "btnShipmentMenu";
-            this.btnShipmentMenu.Size = new System.Drawing.Size(59, 42);
+            this.btnShipmentMenu.Size = new System.Drawing.Size(75, 50);
             this.btnShipmentMenu.TabIndex = 1;
             this.btnShipmentMenu.Text = "Ship";
-            this.btnShipmentMenu.UseVisualStyleBackColor = true;
+            this.btnShipmentMenu.UseVisualStyleBackColor = false;
             this.btnShipmentMenu.Click += new System.EventHandler(this.btnShipmentMenu_Click);
             // 
             // btnGroupMenu
             // 
-            this.btnGroupMenu.Location = new System.Drawing.Point(12, 60);
+            this.btnGroupMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGroupMenu.Location = new System.Drawing.Point(0, 58);
             this.btnGroupMenu.Name = "btnGroupMenu";
-            this.btnGroupMenu.Size = new System.Drawing.Size(59, 42);
+            this.btnGroupMenu.Size = new System.Drawing.Size(75, 50);
             this.btnGroupMenu.TabIndex = 2;
             this.btnGroupMenu.Text = "Group";
             this.btnGroupMenu.UseVisualStyleBackColor = true;
@@ -110,9 +136,12 @@ namespace RMaD
             // 
             // btnReportsMenu
             // 
-            this.btnReportsMenu.Location = new System.Drawing.Point(12, 108);
+            this.btnReportsMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReportsMenu.Location = new System.Drawing.Point(0, 114);
             this.btnReportsMenu.Name = "btnReportsMenu";
-            this.btnReportsMenu.Size = new System.Drawing.Size(59, 42);
+            this.btnReportsMenu.Size = new System.Drawing.Size(75, 50);
             this.btnReportsMenu.TabIndex = 3;
             this.btnReportsMenu.Text = "Report";
             this.btnReportsMenu.UseVisualStyleBackColor = true;
@@ -120,19 +149,25 @@ namespace RMaD
             // 
             // btnUserMenu
             // 
-            this.btnUserMenu.Location = new System.Drawing.Point(12, 569);
+            this.btnUserMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserMenu.Location = new System.Drawing.Point(0, 566);
             this.btnUserMenu.Name = "btnUserMenu";
-            this.btnUserMenu.Size = new System.Drawing.Size(59, 42);
-            this.btnUserMenu.TabIndex = 4;
+            this.btnUserMenu.Size = new System.Drawing.Size(75, 50);
+            this.btnUserMenu.TabIndex = 75;
             this.btnUserMenu.Text = "User";
             this.btnUserMenu.UseVisualStyleBackColor = true;
             this.btnUserMenu.Click += new System.EventHandler(this.btnUserMenu_Click);
             // 
             // btnSettingsMenu
             // 
-            this.btnSettingsMenu.Location = new System.Drawing.Point(12, 618);
+            this.btnSettingsMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSettingsMenu.Location = new System.Drawing.Point(0, 622);
             this.btnSettingsMenu.Name = "btnSettingsMenu";
-            this.btnSettingsMenu.Size = new System.Drawing.Size(59, 42);
+            this.btnSettingsMenu.Size = new System.Drawing.Size(75, 50);
             this.btnSettingsMenu.TabIndex = 5;
             this.btnSettingsMenu.Text = "Settings";
             this.btnSettingsMenu.UseVisualStyleBackColor = true;
@@ -192,10 +227,24 @@ namespace RMaD
             this.lblSettins.TabIndex = 0;
             this.lblSettins.Text = "Settings";
             // 
+            // eventLog1
+            // 
+            this.eventLog1.SynchronizingObject = this;
+            // 
+            // dataGridViewShipment
+            // 
+            this.dataGridViewShipment.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewShipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewShipment.Location = new System.Drawing.Point(31, 57);
+            this.dataGridViewShipment.Name = "dataGridViewShipment";
+            this.dataGridViewShipment.Size = new System.Drawing.Size(507, 496);
+            this.dataGridViewShipment.TabIndex = 2;
+            // 
             // UxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(627, 672);
             this.Controls.Add(this.btnSettingsMenu);
             this.Controls.Add(this.btnUserMenu);
@@ -207,14 +256,17 @@ namespace RMaD
             this.Controls.Add(this.pnlUser);
             this.Controls.Add(this.pnlReports);
             this.Controls.Add(this.pnlGroups);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UxForm";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UxForm_FormClosed);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.UxForm_Load);
             this.pnlShipments.ResumeLayout(false);
             this.pnlGroups.ResumeLayout(false);
             this.pnlReports.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlSettings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipment)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,5 +288,8 @@ namespace RMaD
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Panel pnlSettings;
         private System.Windows.Forms.Label lblSettins;
+        private System.Windows.Forms.Button btnAddShipment;
+        private System.Diagnostics.EventLog eventLog1;
+        private System.Windows.Forms.DataGridView dataGridViewShipment;
     }
 }
