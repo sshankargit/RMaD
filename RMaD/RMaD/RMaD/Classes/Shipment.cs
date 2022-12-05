@@ -36,7 +36,6 @@ namespace RMaD.Classes
                 sqlCommand.Parameters.AddWithValue("@shippingCompany", newShipment[3]);
                 sqlCommand.Parameters.AddWithValue("@shippingStatus", "1");
 
-
                 databaseObject.OpenConnection();
                 res = sqlCommand.ExecuteNonQuery();
 
