@@ -177,5 +177,9 @@ namespace RMaD
             databaseObject.CloseConnection();
         }
 
+        private void pnlShipments_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
