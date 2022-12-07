@@ -51,12 +51,14 @@ namespace RMaD
             if (loginSuccess)
             {
                 MessageBox.Show("Login Success!", "Success!");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
 
                 MessageBox.Show("Login Failed! User name or Password is incorrect.", "Login Failed!");
+                this.DialogResult = DialogResult.Retry;
                 this.Close();                
                 return;
             }

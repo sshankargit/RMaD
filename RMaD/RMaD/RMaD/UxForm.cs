@@ -181,5 +181,26 @@ namespace RMaD
         {
 
         }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            if(tbFirstname.Enabled == false)
+            {
+                tbFirstname.Enabled = true;
+                tbLastname.Enabled = true;
+                tbEmail.Enabled = true;
+                tbToken.Enabled = true;
+                btnEditUser.Text = "Done";
+            }
+            else
+            {
+                tbFirstname.Enabled = false;
+                tbLastname.Enabled = false;
+                tbEmail.Enabled = false;
+                tbToken.Enabled = false;
+                // if changes are made update database
+                btnEditUser.Text = "Edit";
+            }
+        }
     }
 }

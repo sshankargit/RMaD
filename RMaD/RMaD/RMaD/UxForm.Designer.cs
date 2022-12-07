@@ -31,9 +31,12 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UxForm));
             this.pnlShipments = new System.Windows.Forms.Panel();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.dataGridViewShipment = new System.Windows.Forms.DataGridView();
             this.btnAddShipment = new System.Windows.Forms.Button();
             this.lblShipments = new System.Windows.Forms.Label();
@@ -43,6 +46,7 @@ namespace RMaD
             this.pnlReports = new System.Windows.Forms.Panel();
             this.lblReports = new System.Windows.Forms.Label();
             this.pnlUser = new System.Windows.Forms.Panel();
+            this.pbProfilePic = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlSettings = new System.Windows.Forms.Panel();
             this.lblSettins = new System.Windows.Forms.Label();
@@ -52,18 +56,23 @@ namespace RMaD
             this.btnReportsMenu = new System.Windows.Forms.Button();
             this.btnGroupMenu = new System.Windows.Forms.Button();
             this.btnShipmentMenu = new System.Windows.Forms.Button();
-            this.pbProfilePic = new System.Windows.Forms.PictureBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.lblFirstname = new System.Windows.Forms.Label();
+            this.lblLastname = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblToken = new System.Windows.Forms.Label();
+            this.tbFirstname = new System.Windows.Forms.TextBox();
+            this.tbLastname = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbToken = new System.Windows.Forms.TextBox();
+            this.btnEditUser = new System.Windows.Forms.Button();
             this.pnlShipments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipment)).BeginInit();
             this.pnlGroups.SuspendLayout();
             this.pnlReports.SuspendLayout();
             this.pnlUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.pnlSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlShipments
@@ -85,6 +94,38 @@ namespace RMaD
             this.pnlShipments.TabIndex = 0;
             this.pnlShipments.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlShipments_Paint);
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(163, 636);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(121, 43);
+            this.btnEdit.TabIndex = 5;
+            this.btnEdit.Text = "Edit Shipment";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Location = new System.Drawing.Point(290, 636);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(150, 43);
+            this.btnRemove.TabIndex = 4;
+            this.btnRemove.Text = "Remove Shipment";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Image = global::RMaD.Properties.Resources.Refresh;
+            this.btnRefresh.Location = new System.Drawing.Point(508, 10);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(40, 40);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewShipment
             // 
             this.dataGridViewShipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -98,9 +139,9 @@ namespace RMaD
             this.dataGridViewShipment.Name = "dataGridViewShipment";
             this.dataGridViewShipment.ReadOnly = true;
             this.dataGridViewShipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewShipment.Size = new System.Drawing.Size(574, 563);
             this.dataGridViewShipment.TabIndex = 2;
             // 
@@ -182,6 +223,15 @@ namespace RMaD
             this.pnlUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUser.Controls.Add(this.btnEditUser);
+            this.pnlUser.Controls.Add(this.tbToken);
+            this.pnlUser.Controls.Add(this.tbEmail);
+            this.pnlUser.Controls.Add(this.tbLastname);
+            this.pnlUser.Controls.Add(this.tbFirstname);
+            this.pnlUser.Controls.Add(this.lblToken);
+            this.pnlUser.Controls.Add(this.lblEmail);
+            this.pnlUser.Controls.Add(this.lblLastname);
+            this.pnlUser.Controls.Add(this.lblFirstname);
             this.pnlUser.Controls.Add(this.pbProfilePic);
             this.pnlUser.Controls.Add(this.lblUser);
             this.pnlUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,17 +240,33 @@ namespace RMaD
             this.pnlUser.Size = new System.Drawing.Size(580, 707);
             this.pnlUser.TabIndex = 3;
             // 
+            // pbProfilePic
+            // 
+            this.pbProfilePic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("pbProfilePic.Image")));
+            this.pbProfilePic.Location = new System.Drawing.Point(225, 118);
+            this.pbProfilePic.MaximumSize = new System.Drawing.Size(128, 125);
+            this.pbProfilePic.MinimumSize = new System.Drawing.Size(128, 125);
+            this.pbProfilePic.Name = "pbProfilePic";
+            this.pbProfilePic.Size = new System.Drawing.Size(128, 125);
+            this.pbProfilePic.TabIndex = 1;
+            this.pbProfilePic.TabStop = false;
+            // 
             // lblUser
             // 
             this.lblUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.Location = new System.Drawing.Point(226, 213);
+            this.lblUser.Location = new System.Drawing.Point(156, 246);
+            this.lblUser.MinimumSize = new System.Drawing.Size(166, 38);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(125, 38);
+            this.lblUser.Size = new System.Drawing.Size(263, 38);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "Username";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlSettings
             // 
@@ -290,49 +356,87 @@ namespace RMaD
             this.btnShipmentMenu.UseVisualStyleBackColor = false;
             this.btnShipmentMenu.Click += new System.EventHandler(this.btnShipmentMenu_Click);
             // 
-            // pbProfilePic
+            // lblFirstname
             // 
-            this.pbProfilePic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("pbProfilePic.Image")));
-            this.pbProfilePic.Location = new System.Drawing.Point(250, 57);
-            this.pbProfilePic.Name = "pbProfilePic";
-            this.pbProfilePic.Size = new System.Drawing.Size(77, 125);
-            this.pbProfilePic.TabIndex = 1;
-            this.pbProfilePic.TabStop = false;
+            this.lblFirstname.AutoSize = true;
+            this.lblFirstname.Location = new System.Drawing.Point(89, 315);
+            this.lblFirstname.Name = "lblFirstname";
+            this.lblFirstname.Size = new System.Drawing.Size(98, 24);
+            this.lblFirstname.TabIndex = 2;
+            this.lblFirstname.Text = "Firstname:";
+            this.lblFirstname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnRefresh
+            // lblLastname
             // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.Image = global::RMaD.Properties.Resources.Refresh;
-            this.btnRefresh.Location = new System.Drawing.Point(508, 10);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(40, 40);
-            this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.lblLastname.AutoSize = true;
+            this.lblLastname.Location = new System.Drawing.Point(89, 350);
+            this.lblLastname.Name = "lblLastname";
+            this.lblLastname.Size = new System.Drawing.Size(96, 24);
+            this.lblLastname.TabIndex = 3;
+            this.lblLastname.Text = "Lastname:";
+            this.lblLastname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnRemove
+            // lblEmail
             // 
-            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(290, 636);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(150, 43);
-            this.btnRemove.TabIndex = 4;
-            this.btnRemove.Text = "Remove Shipment";
-            this.btnRemove.UseVisualStyleBackColor = true;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(89, 385);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(62, 24);
+            this.lblEmail.TabIndex = 4;
+            this.lblEmail.Text = "Email:";
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnEdit
+            // lblToken
             // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(163, 636);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(121, 43);
-            this.btnEdit.TabIndex = 5;
-            this.btnEdit.Text = "Edit Shipment";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.lblToken.AutoSize = true;
+            this.lblToken.Location = new System.Drawing.Point(89, 420);
+            this.lblToken.Name = "lblToken";
+            this.lblToken.Size = new System.Drawing.Size(69, 24);
+            this.lblToken.TabIndex = 5;
+            this.lblToken.Text = "Token:";
+            this.lblToken.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbFirstname
+            // 
+            this.tbFirstname.Enabled = false;
+            this.tbFirstname.Location = new System.Drawing.Point(211, 310);
+            this.tbFirstname.Name = "tbFirstname";
+            this.tbFirstname.Size = new System.Drawing.Size(233, 29);
+            this.tbFirstname.TabIndex = 6;
+            // 
+            // tbLastname
+            // 
+            this.tbLastname.Enabled = false;
+            this.tbLastname.Location = new System.Drawing.Point(211, 345);
+            this.tbLastname.Name = "tbLastname";
+            this.tbLastname.Size = new System.Drawing.Size(233, 29);
+            this.tbLastname.TabIndex = 7;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Enabled = false;
+            this.tbEmail.Location = new System.Drawing.Point(211, 380);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(233, 29);
+            this.tbEmail.TabIndex = 8;
+            // 
+            // tbToken
+            // 
+            this.tbToken.Enabled = false;
+            this.tbToken.Location = new System.Drawing.Point(211, 415);
+            this.tbToken.Name = "tbToken";
+            this.tbToken.Size = new System.Drawing.Size(233, 29);
+            this.tbToken.TabIndex = 9;
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.Location = new System.Drawing.Point(251, 474);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(75, 33);
+            this.btnEditUser.TabIndex = 10;
+            this.btnEditUser.Text = "Edit";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // UxForm
             // 
@@ -359,9 +463,10 @@ namespace RMaD
             this.pnlGroups.ResumeLayout(false);
             this.pnlReports.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
+            this.pnlUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.pnlSettings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -391,5 +496,14 @@ namespace RMaD
         private System.Windows.Forms.PictureBox pbProfilePic;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnEditUser;
+        private System.Windows.Forms.TextBox tbToken;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbLastname;
+        private System.Windows.Forms.TextBox tbFirstname;
+        private System.Windows.Forms.Label lblToken;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblLastname;
+        private System.Windows.Forms.Label lblFirstname;
     }
 }

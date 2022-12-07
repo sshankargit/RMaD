@@ -44,7 +44,6 @@ namespace RMaD
             // 
             // btnSubmit
             // 
-            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
@@ -66,6 +65,7 @@ namespace RMaD
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(211, 20);
             this.tbPassword.TabIndex = 4;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // Title
             // 
