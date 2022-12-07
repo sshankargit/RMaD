@@ -73,6 +73,7 @@
     <Compile Include="AddShipment.Designer.cs">
       <DependentUpon>AddShipment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\APIHandler.cs" />
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\DatabaseAccess.cs" />
     <Compile Include="Classes\PasswordEncryptor.cs" />

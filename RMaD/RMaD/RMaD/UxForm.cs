@@ -145,7 +145,7 @@ namespace RMaD
         /// <summary>
         /// Populate grid with shipments queried from database
         /// </summary>
-        /// <param </param>
+        /// <param></param>
         private void populateDataGridView()
         {
             dataGridViewShipment.DataSource = null;
@@ -180,6 +180,18 @@ namespace RMaD
         private void pnlShipments_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            // check api for changes
+            // if no changes send message "Packages Up To Date"
+            // if changes have occurred
+            //      pull down package changes
+            //      sort database
+            //      refresh data grid view
+            var testPackage = new APIHandler("https://api.trackinghive.com", "/trackings");
+            testPackage.createJson("POST");
         }
     }
 }
