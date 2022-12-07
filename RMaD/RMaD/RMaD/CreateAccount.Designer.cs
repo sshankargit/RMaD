@@ -103,35 +103,35 @@
             this.tbFirstname.Location = new System.Drawing.Point(135, 111);
             this.tbFirstname.Name = "tbFirstname";
             this.tbFirstname.Size = new System.Drawing.Size(260, 20);
-            this.tbFirstname.TabIndex = 6;
+            this.tbFirstname.TabIndex = 0;
             // 
             // tbUsername
             // 
             this.tbUsername.Location = new System.Drawing.Point(135, 203);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(260, 20);
-            this.tbUsername.TabIndex = 7;
+            this.tbUsername.TabIndex = 2;
             // 
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(135, 249);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(260, 20);
-            this.tbPassword.TabIndex = 8;
+            this.tbPassword.TabIndex = 3;
             // 
             // tbEmail
             // 
             this.tbEmail.Location = new System.Drawing.Point(135, 297);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(260, 20);
-            this.tbEmail.TabIndex = 9;
+            this.tbEmail.TabIndex = 4;
             // 
             // tbLastname
             // 
             this.tbLastname.Location = new System.Drawing.Point(135, 157);
             this.tbLastname.Name = "tbLastname";
             this.tbLastname.Size = new System.Drawing.Size(260, 20);
-            this.tbLastname.TabIndex = 10;
+            this.tbLastname.TabIndex = 1;
             // 
             // btnSubmit
             // 
@@ -139,7 +139,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(180, 345);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 11;
+            this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -149,7 +149,7 @@
             this.btnCancel.Location = new System.Drawing.Point(261, 345);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

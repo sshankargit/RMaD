@@ -51,12 +51,14 @@ namespace RMaD
             if (loginSuccess)
             {
                 MessageBox.Show("Login Success!", "Success!");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
             {
 
                 MessageBox.Show("Login Failed! User name or Password is incorrect.", "Login Failed!");
+                this.DialogResult = DialogResult.Retry;
                 this.Close();                
                 return;
             }
@@ -84,6 +86,19 @@ namespace RMaD
         private void llHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/CSC-470-Project/RMaD");
+        }
+
+        private void RMaD_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = tbUsername;
+        }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.btnSubmit_Click(sender, e);
+            }
         }
     }
 }
