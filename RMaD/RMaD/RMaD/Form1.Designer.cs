@@ -47,7 +47,7 @@ namespace RMaD
             this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 27);
-            this.btnSubmit.TabIndex = 0;
+            this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -57,15 +57,16 @@ namespace RMaD
             this.tbUsername.Location = new System.Drawing.Point(173, 159);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(211, 20);
-            this.tbUsername.TabIndex = 3;
+            this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(172, 214);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(211, 20);
-            this.tbPassword.TabIndex = 4;
+            this.tbPassword.TabIndex = 1;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // Title
             // 
@@ -101,7 +102,7 @@ namespace RMaD
             this.llHelp.Location = new System.Drawing.Point(260, 320);
             this.llHelp.Name = "llHelp";
             this.llHelp.Size = new System.Drawing.Size(29, 13);
-            this.llHelp.TabIndex = 8;
+            this.llHelp.TabIndex = 4;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
             this.llHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llHelp_LinkClicked);
@@ -111,7 +112,7 @@ namespace RMaD
             this.btnAccount.Location = new System.Drawing.Point(225, 290);
             this.btnAccount.Name = "btnAccount";
             this.btnAccount.Size = new System.Drawing.Size(102, 27);
-            this.btnAccount.TabIndex = 9;
+            this.btnAccount.TabIndex = 3;
             this.btnAccount.Text = "Create Account";
             this.btnAccount.UseVisualStyleBackColor = true;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
@@ -141,6 +142,7 @@ namespace RMaD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receiving Mail Daemon";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RMaD_FormClosed);
+            this.Load += new System.EventHandler(this.RMaD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

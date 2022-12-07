@@ -145,7 +145,7 @@ namespace RMaD
         /// <summary>
         /// Populate grid with shipments queried from database
         /// </summary>
-        /// <param </param>
+        /// <param> </param>
         private void populateDataGridView()
         {
             dataGridViewShipment.DataSource = null;
@@ -184,23 +184,39 @@ namespace RMaD
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            if(tbFirstname.Enabled == false)
+            if(tbFirstname.ReadOnly == true)
             {
-                tbFirstname.Enabled = true;
-                tbLastname.Enabled = true;
-                tbEmail.Enabled = true;
-                tbToken.Enabled = true;
+                tbFirstname.ReadOnly = false;
+                tbLastname.ReadOnly = false;
+                tbEmail.ReadOnly = false;
+                tbToken.ReadOnly = false;
                 btnEditUser.Text = "Done";
+                btnCancelEdit.Visible = true;
+                btnCancelEdit.Enabled = true;
+                this.tbFirstname.Focus();
             }
             else
             {
-                tbFirstname.Enabled = false;
-                tbLastname.Enabled = false;
-                tbEmail.Enabled = false;
-                tbToken.Enabled = false;
+                tbFirstname.ReadOnly = true;
+                tbLastname.ReadOnly = true;
+                tbEmail.ReadOnly = true;
+                tbToken.ReadOnly = true;
                 // if changes are made update database
                 btnEditUser.Text = "Edit";
             }
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+            // Discard changes
+            // Reload Fields from database
+            tbFirstname.ReadOnly = true;
+            tbLastname.ReadOnly = true;
+            tbEmail.ReadOnly = true;
+            tbToken.ReadOnly = true;
+            btnEditUser.Text = "Edit";
+            btnCancelEdit.Visible = false;
+            btnCancelEdit.Enabled = false;
         }
     }
 }

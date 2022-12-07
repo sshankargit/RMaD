@@ -89,7 +89,12 @@
             </summary>
             <param name="shipNum">The index of the new button</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:RMaD.UxForm.populateDataGridView" -->
+        <member name="M:RMaD.UxForm.populateDataGridView">
+            <summary>
+            Populate grid with shipments queried from database
+            </summary>
+            <param> </param>
+        </member>
         <member name="F:RMaD.UxForm.components">
             <summary>
             Required designer variable.

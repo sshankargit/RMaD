@@ -46,6 +46,15 @@ namespace RMaD
             this.pnlReports = new System.Windows.Forms.Panel();
             this.lblReports = new System.Windows.Forms.Label();
             this.pnlUser = new System.Windows.Forms.Panel();
+            this.btnEditUser = new System.Windows.Forms.Button();
+            this.tbToken = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbLastname = new System.Windows.Forms.TextBox();
+            this.tbFirstname = new System.Windows.Forms.TextBox();
+            this.lblToken = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblLastname = new System.Windows.Forms.Label();
+            this.lblFirstname = new System.Windows.Forms.Label();
             this.pbProfilePic = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlSettings = new System.Windows.Forms.Panel();
@@ -56,15 +65,7 @@ namespace RMaD
             this.btnReportsMenu = new System.Windows.Forms.Button();
             this.btnGroupMenu = new System.Windows.Forms.Button();
             this.btnShipmentMenu = new System.Windows.Forms.Button();
-            this.lblFirstname = new System.Windows.Forms.Label();
-            this.lblLastname = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblToken = new System.Windows.Forms.Label();
-            this.tbFirstname = new System.Windows.Forms.TextBox();
-            this.tbLastname = new System.Windows.Forms.TextBox();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbToken = new System.Windows.Forms.TextBox();
-            this.btnEditUser = new System.Windows.Forms.Button();
+            this.btnCancelEdit = new System.Windows.Forms.Button();
             this.pnlShipments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipment)).BeginInit();
             this.pnlGroups.SuspendLayout();
@@ -223,6 +224,7 @@ namespace RMaD
             this.pnlUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUser.Controls.Add(this.btnCancelEdit);
             this.pnlUser.Controls.Add(this.btnEditUser);
             this.pnlUser.Controls.Add(this.tbToken);
             this.pnlUser.Controls.Add(this.tbEmail);
@@ -239,6 +241,88 @@ namespace RMaD
             this.pnlUser.Name = "pnlUser";
             this.pnlUser.Size = new System.Drawing.Size(580, 707);
             this.pnlUser.TabIndex = 3;
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.Location = new System.Drawing.Point(211, 474);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(75, 33);
+            this.btnEditUser.TabIndex = 10;
+            this.btnEditUser.Text = "Edit";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
+            // 
+            // tbToken
+            // 
+            this.tbToken.Location = new System.Drawing.Point(211, 415);
+            this.tbToken.Name = "tbToken";
+            this.tbToken.ReadOnly = true;
+            this.tbToken.Size = new System.Drawing.Size(233, 29);
+            this.tbToken.TabIndex = 9;
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(211, 380);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.ReadOnly = true;
+            this.tbEmail.Size = new System.Drawing.Size(233, 29);
+            this.tbEmail.TabIndex = 8;
+            // 
+            // tbLastname
+            // 
+            this.tbLastname.Location = new System.Drawing.Point(211, 345);
+            this.tbLastname.Name = "tbLastname";
+            this.tbLastname.ReadOnly = true;
+            this.tbLastname.Size = new System.Drawing.Size(233, 29);
+            this.tbLastname.TabIndex = 7;
+            // 
+            // tbFirstname
+            // 
+            this.tbFirstname.Location = new System.Drawing.Point(211, 310);
+            this.tbFirstname.Name = "tbFirstname";
+            this.tbFirstname.ReadOnly = true;
+            this.tbFirstname.Size = new System.Drawing.Size(233, 29);
+            this.tbFirstname.TabIndex = 6;
+            // 
+            // lblToken
+            // 
+            this.lblToken.AutoSize = true;
+            this.lblToken.Location = new System.Drawing.Point(89, 420);
+            this.lblToken.Name = "lblToken";
+            this.lblToken.Size = new System.Drawing.Size(69, 24);
+            this.lblToken.TabIndex = 5;
+            this.lblToken.Text = "Token:";
+            this.lblToken.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(89, 385);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(62, 24);
+            this.lblEmail.TabIndex = 4;
+            this.lblEmail.Text = "Email:";
+            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblLastname
+            // 
+            this.lblLastname.AutoSize = true;
+            this.lblLastname.Location = new System.Drawing.Point(89, 350);
+            this.lblLastname.Name = "lblLastname";
+            this.lblLastname.Size = new System.Drawing.Size(96, 24);
+            this.lblLastname.TabIndex = 3;
+            this.lblLastname.Text = "Lastname:";
+            this.lblLastname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblFirstname
+            // 
+            this.lblFirstname.AutoSize = true;
+            this.lblFirstname.Location = new System.Drawing.Point(89, 315);
+            this.lblFirstname.Name = "lblFirstname";
+            this.lblFirstname.Size = new System.Drawing.Size(98, 24);
+            this.lblFirstname.TabIndex = 2;
+            this.lblFirstname.Text = "Firstname:";
+            this.lblFirstname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbProfilePic
             // 
@@ -356,87 +440,17 @@ namespace RMaD
             this.btnShipmentMenu.UseVisualStyleBackColor = false;
             this.btnShipmentMenu.Click += new System.EventHandler(this.btnShipmentMenu_Click);
             // 
-            // lblFirstname
+            // btnCancelEdit
             // 
-            this.lblFirstname.AutoSize = true;
-            this.lblFirstname.Location = new System.Drawing.Point(89, 315);
-            this.lblFirstname.Name = "lblFirstname";
-            this.lblFirstname.Size = new System.Drawing.Size(98, 24);
-            this.lblFirstname.TabIndex = 2;
-            this.lblFirstname.Text = "Firstname:";
-            this.lblFirstname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLastname
-            // 
-            this.lblLastname.AutoSize = true;
-            this.lblLastname.Location = new System.Drawing.Point(89, 350);
-            this.lblLastname.Name = "lblLastname";
-            this.lblLastname.Size = new System.Drawing.Size(96, 24);
-            this.lblLastname.TabIndex = 3;
-            this.lblLastname.Text = "Lastname:";
-            this.lblLastname.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(89, 385);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(62, 24);
-            this.lblEmail.TabIndex = 4;
-            this.lblEmail.Text = "Email:";
-            this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblToken
-            // 
-            this.lblToken.AutoSize = true;
-            this.lblToken.Location = new System.Drawing.Point(89, 420);
-            this.lblToken.Name = "lblToken";
-            this.lblToken.Size = new System.Drawing.Size(69, 24);
-            this.lblToken.TabIndex = 5;
-            this.lblToken.Text = "Token:";
-            this.lblToken.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbFirstname
-            // 
-            this.tbFirstname.Enabled = false;
-            this.tbFirstname.Location = new System.Drawing.Point(211, 310);
-            this.tbFirstname.Name = "tbFirstname";
-            this.tbFirstname.Size = new System.Drawing.Size(233, 29);
-            this.tbFirstname.TabIndex = 6;
-            // 
-            // tbLastname
-            // 
-            this.tbLastname.Enabled = false;
-            this.tbLastname.Location = new System.Drawing.Point(211, 345);
-            this.tbLastname.Name = "tbLastname";
-            this.tbLastname.Size = new System.Drawing.Size(233, 29);
-            this.tbLastname.TabIndex = 7;
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Enabled = false;
-            this.tbEmail.Location = new System.Drawing.Point(211, 380);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(233, 29);
-            this.tbEmail.TabIndex = 8;
-            // 
-            // tbToken
-            // 
-            this.tbToken.Enabled = false;
-            this.tbToken.Location = new System.Drawing.Point(211, 415);
-            this.tbToken.Name = "tbToken";
-            this.tbToken.Size = new System.Drawing.Size(233, 29);
-            this.tbToken.TabIndex = 9;
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(251, 474);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(75, 33);
-            this.btnEditUser.TabIndex = 10;
-            this.btnEditUser.Text = "Edit";
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
+            this.btnCancelEdit.Enabled = false;
+            this.btnCancelEdit.Location = new System.Drawing.Point(292, 474);
+            this.btnCancelEdit.Name = "btnCancelEdit";
+            this.btnCancelEdit.Size = new System.Drawing.Size(80, 33);
+            this.btnCancelEdit.TabIndex = 11;
+            this.btnCancelEdit.Text = "Cancel";
+            this.btnCancelEdit.UseVisualStyleBackColor = true;
+            this.btnCancelEdit.Visible = false;
+            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
             // 
             // UxForm
             // 
@@ -449,11 +463,11 @@ namespace RMaD
             this.Controls.Add(this.btnReportsMenu);
             this.Controls.Add(this.btnGroupMenu);
             this.Controls.Add(this.btnShipmentMenu);
-            this.Controls.Add(this.pnlShipments);
-            this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlUser);
             this.Controls.Add(this.pnlReports);
             this.Controls.Add(this.pnlGroups);
+            this.Controls.Add(this.pnlShipments);
+            this.Controls.Add(this.pnlSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -505,5 +519,6 @@ namespace RMaD
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblLastname;
         private System.Windows.Forms.Label lblFirstname;
+        private System.Windows.Forms.Button btnCancelEdit;
     }
 }

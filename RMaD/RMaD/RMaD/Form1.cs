@@ -87,5 +87,18 @@ namespace RMaD
         {
             System.Diagnostics.Process.Start("https://github.com/CSC-470-Project/RMaD");
         }
+
+        private void RMaD_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = tbUsername;
+        }
+
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                this.btnSubmit_Click(sender, e);
+            }
+        }
     }
 }
