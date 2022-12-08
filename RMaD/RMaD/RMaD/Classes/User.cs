@@ -48,8 +48,8 @@ namespace RMaD.Classes
         {
             sqlQuery = "INSERT INTO USERS (first_name, last_name, user_name, password,email_address,created_on) " +
                       "VALUES(@firstName, @lastName, @userName, @password, @emailId, @createDate)";
-
-            string encryptedPassword = PasswordEncryptor.MD5Hash(this._password);
+            
+            string encryptedPassword = Hashing.HashPassword(this._password);
 
             try
             {
@@ -62,7 +62,6 @@ namespace RMaD.Classes
                 sqlCommand.Parameters.AddWithValue("@password", encryptedPassword);
                 sqlCommand.Parameters.AddWithValue("@emailId", this._email);
                 sqlCommand.Parameters.AddWithValue("@createDate",DateTime.Now.ToString("yyyy-MM-dd"));
-
 
                 databaseObject.OpenConnection();
                 sqlCommand.ExecuteNonQuery();

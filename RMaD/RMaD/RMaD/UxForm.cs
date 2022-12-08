@@ -190,8 +190,10 @@ namespace RMaD
             //      pull down package changes
             //      sort database
             //      refresh data grid view
+
+            // currently testing POSTS
             var testPackage = new APIHandler("https://api.trackinghive.com", "/trackings");
-            testPackage.createJson("POST");
+            testPackage.PostJson();
         }
     }
 }

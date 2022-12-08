@@ -36,8 +36,8 @@ namespace RMaD.Classes
         {
             //get token from database
             // this._token = "Bearer " + token from database;
-            this._token = "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGQyMmRmOWM0OGEwMDAyZDk3OTI5MiIsI" +
-                "mlhdCI6MTY3MDE5Mzk0N30.NAMYKyQEsLTkHqhgF2DQ4EgAIUNhujCePx30Ze0-Zm0";
+            this._token = "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGQyMmRmOWM0OGEwMD" +
+                "AyZDk3OTI5MiIsImlhdCI6MTY3MDE5Mzk0N30.NAMYKyQEsLTkHqhgF2DQ4EgAIUNhujCePx30Ze0-Zm0";
             this._url = url + endpoint;
         }
 

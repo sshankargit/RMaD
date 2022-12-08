@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 
 namespace RMaD.Classes
 {
@@ -43,11 +44,10 @@ namespace RMaD.Classes
             {
                 if (result.Read())
                 {
-                    if (result[1].ToString() != PasswordEncryptor.MD5Hash(this._password))
+                    if (!Hashing.ValidatePassword(this._password, result[1].ToString()))
                     {
                         validLogin = false;
                     }
-
                 }
             }
             else

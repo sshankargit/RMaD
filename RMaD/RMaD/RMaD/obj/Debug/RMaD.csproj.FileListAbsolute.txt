@@ -37,3 +37,13 @@ C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\obj\Debug\RMaD.csproj.Co
 C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\obj\Debug\RMaD.csproj.CopyComplete
 C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\obj\Debug\RMaD.exe
 C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\obj\Debug\RMaD.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\BCrypt.Net.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Buffers.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Memory.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\BCrypt.Net.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Buffers.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Memory.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
