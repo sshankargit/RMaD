@@ -41,6 +41,39 @@ namespace RMaD.Classes
 
             return shippingServList;
         }
+        //Get carried ID from database
+        public int getCarrierID(string carrierName)
+        {
+            DatabaseAccess databaseObject = new DatabaseAccess();
+            sqlQuery = "select shipping_company_id from SHIPPING_COMPANY where shipping_company_name = @carrier";
+            sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@carrier", carrierName);
+            databaseObject.OpenConnection();
+
+            result = sqlCommand.ExecuteReader();
+
+            int carrierID = 0;
+
+            if (result.HasRows)
+            {
+                if (result.Read())
+                {
+                    if (result[0].ToString() == string.Empty)
+                    {
+                        result.Close();
+                        databaseObject.CloseConnection();
+                        return 0;
+                    }
+
+                    carrierID = int.Parse(result[0].ToString());
+                }
+            }
+
+            result.Close();
+            databaseObject.CloseConnection();
+
+            return carrierID;
+        }
 
     }
 }
