@@ -43,7 +43,7 @@ namespace RMaD.Classes
             {
                 if (result.Read())
                 {
-                    //if (result[1].ToString() != PasswordEncryption.MD5Hash(this._password))
+                    //Bcrypt auth added
                     if (!PasswordEncryption.ValidatePassword(this._password, result[1].ToString()))
                     {
                         validLogin = false;

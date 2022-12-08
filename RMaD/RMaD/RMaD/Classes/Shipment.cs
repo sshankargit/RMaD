@@ -40,7 +40,7 @@ namespace RMaD.Classes
             try
             {
                 ShippingService shipServ = new ShippingService();
-                int carrierID = shipServ.getCarrierID(this._carrier);
+                int carrierID = shipServ.getCarrierID(this._carrier);//getting carrier ID from database
 
                 if (carrierID < 1)
                 {

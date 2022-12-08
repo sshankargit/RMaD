@@ -41,7 +41,7 @@ namespace RMaD.Classes
 
             return shippingServList;
         }
-
+        //Get carried ID from database
         public int getCarrierID(string carrierName)
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
