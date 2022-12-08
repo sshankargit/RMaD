@@ -39,13 +39,20 @@ namespace RMaD.Classes
 
             try
             {
+                ShippingService shipServ = new ShippingService();
+                int carrierID = shipServ.getCarrierID(this._carrier);
+
+                if (carrierID < 1)
+                {
+                    MessageBox.Show("Carrier does not exist in the system.", "New shipment add failed!");
+                }
+
                 DatabaseAccess databaseObject = new DatabaseAccess();
                 sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
-
                 sqlCommand.Parameters.AddWithValue("@trackingId", this._trackNumber);
                 sqlCommand.Parameters.AddWithValue("@dateShipped", this._dateShipped);
                 sqlCommand.Parameters.AddWithValue("@dateArrival", this._dateArrival);
-                sqlCommand.Parameters.AddWithValue("@shippingCompany", this._carrier);
+                sqlCommand.Parameters.AddWithValue("@shippingCompany", carrierID);
                 sqlCommand.Parameters.AddWithValue("@shippingStatus", "1");
 
                 databaseObject.OpenConnection();
