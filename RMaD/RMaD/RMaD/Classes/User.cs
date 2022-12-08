@@ -49,7 +49,8 @@ namespace RMaD.Classes
             sqlQuery = "INSERT INTO USERS (first_name, last_name, user_name, password,email_address,created_on) " +
                       "VALUES(@firstName, @lastName, @userName, @password, @emailId, @createDate)";
 
-            string encryptedPassword = PasswordEncryptor.MD5Hash(this._password);
+            //Bcrypt password protection
+            string encryptedPassword = PasswordEncryption.HashPassword(this._password);
 
             try
             {

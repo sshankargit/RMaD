@@ -27,7 +27,7 @@ namespace RMaD.Classes
             this._username = username; 
             this._password = password;
         }
-
+        //Login user
         public Boolean login()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
@@ -43,7 +43,8 @@ namespace RMaD.Classes
             {
                 if (result.Read())
                 {
-                    if (result[1].ToString() != PasswordEncryptor.MD5Hash(this._password))
+                    //Bcrypt auth added
+                    if (!PasswordEncryption.ValidatePassword(this._password, result[1].ToString()))
                     {
                         validLogin = false;
                     }
