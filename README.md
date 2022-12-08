@@ -11,7 +11,7 @@ To use this application, you will need to have the SQLite engine installed on yo
 
 Once you have the SQLite engine installed, you can clone this repository and run the application on your local machine.
 
-We hope you enjoy using the Parcel Tracker and never lose track of your packages again!
+We hope you enjoy using the RMaD and never lose track of your packages again!
 
 
 ## Changelog
