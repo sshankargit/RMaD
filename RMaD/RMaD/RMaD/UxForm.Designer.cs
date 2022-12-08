@@ -31,7 +31,7 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UxForm));
             this.pnlShipments = new System.Windows.Forms.Panel();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@ namespace RMaD
             this.pnlReports = new System.Windows.Forms.Panel();
             this.lblReports = new System.Windows.Forms.Label();
             this.pnlUser = new System.Windows.Forms.Panel();
+            this.btnCancelEdit = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
             this.tbToken = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@ namespace RMaD
             this.btnReportsMenu = new System.Windows.Forms.Button();
             this.btnGroupMenu = new System.Windows.Forms.Button();
             this.btnShipmentMenu = new System.Windows.Forms.Button();
-            this.btnCancelEdit = new System.Windows.Forms.Button();
             this.pnlShipments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipment)).BeginInit();
             this.pnlGroups.SuspendLayout();
@@ -140,9 +140,9 @@ namespace RMaD
             this.dataGridViewShipment.Name = "dataGridViewShipment";
             this.dataGridViewShipment.ReadOnly = true;
             this.dataGridViewShipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewShipment.Size = new System.Drawing.Size(574, 563);
             this.dataGridViewShipment.TabIndex = 2;
             // 
@@ -241,6 +241,18 @@ namespace RMaD
             this.pnlUser.Name = "pnlUser";
             this.pnlUser.Size = new System.Drawing.Size(580, 707);
             this.pnlUser.TabIndex = 3;
+            // 
+            // btnCancelEdit
+            // 
+            this.btnCancelEdit.Enabled = false;
+            this.btnCancelEdit.Location = new System.Drawing.Point(292, 474);
+            this.btnCancelEdit.Name = "btnCancelEdit";
+            this.btnCancelEdit.Size = new System.Drawing.Size(80, 33);
+            this.btnCancelEdit.TabIndex = 11;
+            this.btnCancelEdit.Text = "Cancel";
+            this.btnCancelEdit.UseVisualStyleBackColor = true;
+            this.btnCancelEdit.Visible = false;
+            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
             // 
             // btnEditUser
             // 
@@ -440,18 +452,6 @@ namespace RMaD
             this.btnShipmentMenu.UseVisualStyleBackColor = false;
             this.btnShipmentMenu.Click += new System.EventHandler(this.btnShipmentMenu_Click);
             // 
-            // btnCancelEdit
-            // 
-            this.btnCancelEdit.Enabled = false;
-            this.btnCancelEdit.Location = new System.Drawing.Point(292, 474);
-            this.btnCancelEdit.Name = "btnCancelEdit";
-            this.btnCancelEdit.Size = new System.Drawing.Size(80, 33);
-            this.btnCancelEdit.TabIndex = 11;
-            this.btnCancelEdit.Text = "Cancel";
-            this.btnCancelEdit.UseVisualStyleBackColor = true;
-            this.btnCancelEdit.Visible = false;
-            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
-            // 
             // UxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,11 +463,11 @@ namespace RMaD
             this.Controls.Add(this.btnReportsMenu);
             this.Controls.Add(this.btnGroupMenu);
             this.Controls.Add(this.btnShipmentMenu);
+            this.Controls.Add(this.pnlShipments);
+            this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlUser);
             this.Controls.Add(this.pnlReports);
             this.Controls.Add(this.pnlGroups);
-            this.Controls.Add(this.pnlShipments);
-            this.Controls.Add(this.pnlSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
