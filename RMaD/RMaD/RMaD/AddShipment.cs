@@ -72,6 +72,7 @@ namespace RMaD
                 Boolean addShipment = newShipment.addShipment();
                 if (addShipment)
                 {
+                    Utils.emailShipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text);
                     MessageBox.Show("Tracking number has been added successfully.", "Add new Shipment!");
                 }
                 else
