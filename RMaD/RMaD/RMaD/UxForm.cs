@@ -97,6 +97,17 @@ namespace RMaD
                     buttonList[i].Enabled = true;
                 }
             }
+
+            if (panel == 3)
+                if (panel == 3)
+                {
+                    User user = new User(LoginInfo.loggedInUser);
+                    lblUser.Text = user.UserName();
+                    tbFirstname.Text = user.FirstName();
+                    tbLastname.Text = user.Lastname();
+                    tbEmail.Text = user.Email();
+                    tbToken.Text = user.Token();
+                }
         }
 
         private void btnAddShipment_Click(object sender, EventArgs e)
@@ -110,7 +121,7 @@ namespace RMaD
                 if(drShip == DialogResult.OK)
                 {
                     this.Shipments++;
-                    //newShipment(Shipments);
+                    populateDataGridView();
                     creating = false;
                 }
                 else if(drShip == DialogResult.Cancel)
