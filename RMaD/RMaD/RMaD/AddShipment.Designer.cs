@@ -39,6 +39,8 @@
             this.dtpShipped = new System.Windows.Forms.DateTimePicker();
             this.dtpArrival = new System.Windows.Forms.DateTimePicker();
             this.tbCarrierdpdn = new System.Windows.Forms.ComboBox();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTracking
@@ -105,7 +107,7 @@
             // 
             this.btnAddShipment.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAddShipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddShipment.Location = new System.Drawing.Point(184, 296);
+            this.btnAddShipment.Location = new System.Drawing.Point(185, 325);
             this.btnAddShipment.Name = "btnAddShipment";
             this.btnAddShipment.Size = new System.Drawing.Size(95, 33);
             this.btnAddShipment.TabIndex = 4;
@@ -117,7 +119,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(285, 296);
+            this.btnCancel.Location = new System.Drawing.Point(286, 325);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(95, 33);
             this.btnCancel.TabIndex = 5;
@@ -146,16 +148,37 @@
             // 
             this.tbCarrierdpdn.FormattingEnabled = true;
             this.tbCarrierdpdn.Location = new System.Drawing.Point(231, 227);
-            this.tbCarrierdpdn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbCarrierdpdn.Margin = new System.Windows.Forms.Padding(2);
             this.tbCarrierdpdn.Name = "tbCarrierdpdn";
             this.tbCarrierdpdn.Size = new System.Drawing.Size(257, 21);
             this.tbCarrierdpdn.TabIndex = 3;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(231, 270);
+            this.cbStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(257, 21);
+            this.cbStatus.TabIndex = 6;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(58, 271);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(60, 20);
+            this.lblStatus.TabIndex = 7;
+            this.lblStatus.Text = "Status:";
             // 
             // AddShipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 419);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.tbCarrierdpdn);
             this.Controls.Add(this.dtpArrival);
             this.Controls.Add(this.dtpShipped);
@@ -190,5 +213,7 @@
         private System.Windows.Forms.DateTimePicker dtpArrival;
         private System.Windows.Forms.ComboBox tbCarrierdpdn;
         private System.Windows.Forms.MaskedTextBox mtbTracking;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
