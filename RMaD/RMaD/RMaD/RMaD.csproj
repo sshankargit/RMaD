@@ -91,10 +91,12 @@
     </Compile>
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Classes\DatabaseAccess.cs" />
+    <Compile Include="Classes\LoginInfo.cs" />
     <Compile Include="Classes\PasswordEncryption.cs" />
     <Compile Include="Classes\Shipment.cs" />
     <Compile Include="Classes\ShippingService.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Utils.cs" />
     <Compile Include="CreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -51,6 +51,7 @@ namespace RMaD
             if (loginSuccess)
             {
                 MessageBox.Show("Login Success!", "Success!");
+                LoginInfo.loggedInUser = tbUsername.Text;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
