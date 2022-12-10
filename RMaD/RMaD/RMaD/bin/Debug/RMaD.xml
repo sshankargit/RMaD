@@ -21,6 +21,30 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:RMaD.Classes.APIHandler.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Create a handler for POST and GET connections for an API.
+            </summary>
+            <param name="url">Base url for connecting to API</param>
+            <param name="endpoint">Endpoint for making specific calls to API</param>
+            <param name="token">Developer token from Trackhive</param>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.PostAllShipments">
+            <summary>
+            posts all shipments to API server
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.GetAllShipments">
+            <summary>
+            Get all shipments held in API server
+            </summary>
+            <returns>Datatable with all shipments</returns>
+        </member>
+        <member name="T:RMaD.CreateAccount">
+            <summary>
+            For for displaying account creation fields
+            </summary>
+        </member>
         <member name="F:RMaD.CreateAccount.components">
             <summary>
             Required designer variable.
@@ -89,7 +113,12 @@
             </summary>
             <param name="shipNum">The index of the new button</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:RMaD.UxForm.populateDataGridView" -->
+        <member name="M:RMaD.UxForm.populateDataGridView">
+            <summary>
+            Populate grid with shipments queried from database
+            </summary>
+            <param> </param>
+        </member>
         <member name="F:RMaD.UxForm.components">
             <summary>
             Required designer variable.

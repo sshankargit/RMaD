@@ -97,6 +97,17 @@ namespace RMaD
                     buttonList[i].Enabled = true;
                 }
             }
+
+            if (panel == 3)
+                if (panel == 3)
+                {
+                    User user = new User(LoginInfo.loggedInUser);
+                    lblUser.Text = user.UserName();
+                    tbFirstname.Text = user.FirstName();
+                    tbLastname.Text = user.Lastname();
+                    tbEmail.Text = user.Email();
+                    tbToken.Text = user.Token();
+                }
         }
 
         private void btnAddShipment_Click(object sender, EventArgs e)
@@ -110,7 +121,7 @@ namespace RMaD
                 if(drShip == DialogResult.OK)
                 {
                     this.Shipments++;
-                    //newShipment(Shipments);
+                    populateDataGridView();
                     creating = false;
                 }
                 else if(drShip == DialogResult.Cancel)
@@ -125,6 +136,7 @@ namespace RMaD
             
         }
 
+        // delete
         /// <summary>
         /// Creates a new shipment button within the Flow Layout Panel.
         /// </summary>
@@ -145,7 +157,7 @@ namespace RMaD
         /// <summary>
         /// Populate grid with shipments queried from database
         /// </summary>
-        /// <param </param>
+        /// <param> </param>
         private void populateDataGridView()
         {
             dataGridViewShipment.DataSource = null;
@@ -157,7 +169,7 @@ namespace RMaD
                         "from SHIPMENT S " +
                         "INNER JOIN SHIPPING_COMPANY SC on S.shipping_company_id = SC.shipping_company_id " +
                         "INNER JOIN SHIPMENT_STATUS SS on S.shipment_status_id = SS.shipment_status_id " +
-                        "order by S.shipment_id DESC";            
+                        "order by S.shipment_id DESC";
 
             SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);
             sqdt.Fill(dt);
@@ -180,6 +192,52 @@ namespace RMaD
         private void pnlShipments_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            if(tbFirstname.ReadOnly == true)
+            {
+                tbFirstname.ReadOnly = false;
+                tbLastname.ReadOnly = false;
+                tbEmail.ReadOnly = false;
+                tbToken.ReadOnly = false;
+                btnEditUser.Text = "Done";
+                btnCancelEdit.Visible = true;
+                btnCancelEdit.Enabled = true;
+                this.tbFirstname.Focus();
+            }
+            else
+            {
+                tbFirstname.ReadOnly = true;
+                tbLastname.ReadOnly = true;
+                tbEmail.ReadOnly = true;
+                tbToken.ReadOnly = true;
+                // if changes are made update database
+                btnEditUser.Text = "Edit";
+                btnCancelEdit.Visible = false; 
+                btnCancelEdit.Enabled = false;
+            }
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+            // Discard changes
+            // Reload Fields from database
+            tbFirstname.ReadOnly = true;
+            tbLastname.ReadOnly = true;
+            tbEmail.ReadOnly = true;
+            tbToken.ReadOnly = true;
+            btnEditUser.Text = "Edit";
+            btnCancelEdit.Visible = false;
+            btnCancelEdit.Enabled = false;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            User user = new User(LoginInfo.loggedInUser);
+            APIHandler newShipment = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
+            newShipment.GetAllShipments();
         }
     }
 }

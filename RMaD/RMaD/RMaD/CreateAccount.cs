@@ -11,6 +11,9 @@ using RMaD.Classes;
 
 namespace RMaD
 {
+    /// <summary>
+    /// For for displaying account creation fields
+    /// </summary>
     public partial class CreateAccount : Form
     {
         public CreateAccount()
@@ -61,7 +64,7 @@ namespace RMaD
                 return;
             }
 
-            User newUser = new User(tbFirstname.Text, tbLastname.Text, tbUsername.Text, tbPassword.Text, tbEmail.Text);
+            User newUser = new User(tbFirstname.Text, tbLastname.Text, tbUsername.Text, tbPassword.Text, tbEmail.Text, tbToken.Text);
 
             //Check if username or email address already exists
             //Account will not be created if username or email address already exists.

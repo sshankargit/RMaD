@@ -18,7 +18,7 @@ namespace RMaD
         {
             InitializeComponent();
             populateCarrier();
-
+            populateStatus();
         }
 
         private void dtpShipped_ValueChanged(object sender, EventArgs e)
@@ -40,6 +40,20 @@ namespace RMaD
             }
         }
 
+        private void populateStatus()
+        {
+            ShippingService shippingServ = new ShippingService();
+            cbStatus.Items.Clear();
+
+            List<string> ls = new List<string>();
+
+            ls = shippingServ.loadShippingStatusList();
+            foreach (string item in ls)
+            {
+                cbStatus.Items.Add(item);
+            }
+        }
+
         private void AddShipment_Load(object sender, EventArgs e)
         {
 
@@ -48,7 +62,7 @@ namespace RMaD
         private void btnAddShipment_Click(object sender, EventArgs e)
         {
             
-            Shipment newShipment = new Shipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text);
+            Shipment newShipment = new Shipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text, cbStatus.Text);
 
             if (string.IsNullOrEmpty(mtbTracking.Text))
             {
@@ -72,6 +86,7 @@ namespace RMaD
                 Boolean addShipment = newShipment.addShipment();
                 if (addShipment)
                 {
+                    Utils.emailShipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text);
                     MessageBox.Show("Tracking number has been added successfully.", "Add new Shipment!");
                 }
                 else
