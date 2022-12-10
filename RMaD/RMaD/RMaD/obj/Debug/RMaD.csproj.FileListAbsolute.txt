@@ -81,3 +81,5 @@ C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.csproj.CoreCompileI
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.csproj.CopyComplete
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.exe
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Newtonsoft.Json.xml

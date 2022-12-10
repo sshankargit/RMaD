@@ -18,17 +18,19 @@ namespace RMaD.Classes
         private string _dateShipped;
         private string _dateArrival;
         private string _carrier;
+        private string _shipmentStatus;
 
         private static SQLiteDataReader result;
         private static SQLiteCommand sqlCommand;
         static string sqlQuery;        
 
-        public Shipment(string trackNumber, string dateShipped, string dateArrival, string carrier)
+        public Shipment(string trackNumber, string dateShipped, string dateArrival, string carrier, string shipmentStatus)
         {
             _trackNumber = trackNumber;
             _dateShipped = dateShipped;
             _dateArrival = dateArrival;
             _carrier = carrier;
+            _shipmentStatus = shipmentStatus;
         }
 
         public Boolean addShipment() {     
@@ -41,6 +43,7 @@ namespace RMaD.Classes
             {
                 ShippingService shipServ = new ShippingService();
                 int carrierID = shipServ.getCarrierID(this._carrier);//getting carrier ID from database
+                int shipStatusId = shipServ.getShipmentStatusID(this._shipmentStatus); // get ship status id
 
                 if (carrierID < 1)
                 {
@@ -53,7 +56,7 @@ namespace RMaD.Classes
                 sqlCommand.Parameters.AddWithValue("@dateShipped", this._dateShipped);
                 sqlCommand.Parameters.AddWithValue("@dateArrival", this._dateArrival);
                 sqlCommand.Parameters.AddWithValue("@shippingCompany", carrierID);
-                sqlCommand.Parameters.AddWithValue("@shippingStatus", "1");
+                sqlCommand.Parameters.AddWithValue("@shippingStatus", shipStatusId);
 
                 databaseObject.OpenConnection();
                 sqlCommand.ExecuteNonQuery();

@@ -5,6 +5,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt.Net;
 
 namespace RMaD.Classes
 {
@@ -48,7 +49,6 @@ namespace RMaD.Classes
                     {
                         validLogin = false;
                     }
-
                 }
             }
             else

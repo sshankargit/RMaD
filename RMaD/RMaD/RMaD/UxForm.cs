@@ -136,6 +136,7 @@ namespace RMaD
             
         }
 
+        // delete
         /// <summary>
         /// Creates a new shipment button within the Flow Layout Panel.
         /// </summary>
@@ -168,7 +169,7 @@ namespace RMaD
                         "from SHIPMENT S " +
                         "INNER JOIN SHIPPING_COMPANY SC on S.shipping_company_id = SC.shipping_company_id " +
                         "INNER JOIN SHIPMENT_STATUS SS on S.shipment_status_id = SS.shipment_status_id " +
-                        "order by S.shipment_id DESC";            
+                        "order by S.shipment_id DESC";
 
             SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);
             sqdt.Fill(dt);
@@ -214,6 +215,8 @@ namespace RMaD
                 tbToken.ReadOnly = true;
                 // if changes are made update database
                 btnEditUser.Text = "Edit";
+                btnCancelEdit.Visible = false; 
+                btnCancelEdit.Enabled = false;
             }
         }
 
@@ -228,6 +231,13 @@ namespace RMaD
             btnEditUser.Text = "Edit";
             btnCancelEdit.Visible = false;
             btnCancelEdit.Enabled = false;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            User user = new User(LoginInfo.loggedInUser);
+            APIHandler newShipment = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
+            newShipment.GetAllShipments();
         }
     }
 }
