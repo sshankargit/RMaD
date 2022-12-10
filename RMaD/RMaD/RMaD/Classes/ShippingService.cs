@@ -75,5 +75,67 @@ namespace RMaD.Classes
             return carrierID;
         }
 
+        //Get shipment status ID from database
+        public int getShipmentStatusID(string shipmentStatus)
+        {
+            DatabaseAccess databaseObject = new DatabaseAccess();
+            sqlQuery = "select shipment_status_id from SHIPMENT_STATUS where status = @shipStatus";
+            sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@shipStatus", shipmentStatus);
+            databaseObject.OpenConnection();
+
+            result = sqlCommand.ExecuteReader();
+
+            int shipmentStatusId = 0;
+
+            if (result.HasRows)
+            {
+                if (result.Read())
+                {
+                    if (result[0].ToString() == string.Empty)
+                    {
+                        result.Close();
+                        databaseObject.CloseConnection();
+                        return 0;
+                    }
+
+                    shipmentStatusId = int.Parse(result[0].ToString());
+                }
+            }
+
+            result.Close();
+            databaseObject.CloseConnection();
+
+            return shipmentStatusId;
+        }
+
+        public List<string> loadShippingStatusList()
+        {
+            List<string> statusList = new List<string>();
+
+            DatabaseAccess databaseObject = new DatabaseAccess();
+            sqlQuery = "SELECT status from SHIPMENT_STATUS";
+            sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+            //sqlCommand.Parameters.AddWithValue("@projectVer", projectVer);
+
+            databaseObject.OpenConnection();
+            result = sqlCommand.ExecuteReader();
+
+            //int moduleID = 0;
+
+            if (result.HasRows)
+            {
+                while (result.Read())
+                {
+                    statusList.Add(result[0].ToString());
+                }
+            }
+
+            result.Close();
+            databaseObject.CloseConnection();
+
+            return statusList;
+        }
+
     }
 }

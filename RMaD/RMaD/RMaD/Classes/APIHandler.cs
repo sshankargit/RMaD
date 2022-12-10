@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SQLite;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.Common;
+using Newtonsoft.Json;
+using System.Threading;
+using Newtonsoft.Json.Linq;
 
 namespace RMaD.Classes
 {
@@ -32,36 +40,119 @@ namespace RMaD.Classes
         /// </summary>
         /// <param name="url">Base url for connecting to API</param>
         /// <param name="endpoint">Endpoint for making specific calls to API</param>
-        public APIHandler(string url, string endpoint)
+        /// <param name="token">Developer token from Trackhive</param>
+        public APIHandler(string url, string endpoint, string token)
         {
-            //get token from database
-            // this._token = "Bearer " + token from database;
-            this._token = "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGQyMmRmOWM0OGEwMD" +
-                "AyZDk3OTI5MiIsImlhdCI6MTY3MDE5Mzk0N30.NAMYKyQEsLTkHqhgF2DQ4EgAIUNhujCePx30Ze0-Zm0";
+            this._token = "Bearer " + token;
             this._url = url + endpoint;
         }
 
-        public async void PostJson()
+        /// <summary>
+        /// posts all shipments to API server
+        /// </summary>
+        public async void PostAllShipments()
         {
-            var req = new HttpRequestMessage(HttpMethod.Post, this.Url);
+            DatabaseAccess databaseObject = new DatabaseAccess();
+            databaseObject.OpenConnection();
+            DataTable dt = new DataTable();
+
+            string sqlQuery = "select S.tracking_id as [Tracking], S.shipped_on as [Shipped Date], S.arrive_on as [Arrival Date], SC.shipping_company_name as [Carrier], SS.status as Status " +
+                        "from SHIPMENT S " +
+                        "INNER JOIN SHIPPING_COMPANY SC on S.shipping_company_id = SC.shipping_company_id " +
+                        "INNER JOIN SHIPMENT_STATUS SS on S.shipment_status_id = SS.shipment_status_id " +
+            "order by S.shipment_id DESC";
+
+            SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);
+            sqdt.Fill(dt);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var row = dt.Rows[i];
+                var req = new HttpRequestMessage(HttpMethod.Post, this.Url);
+                //var req = new HttpRequestMessage(HttpMethod.Post, "https://private-anon-2c521532d5-trackhive.apiary-mock.com/");
+                req.Headers.Add("Authorization", this.Token);
+                req.Headers.Add("Accept", "application/json");
+
+                var slugId = (row["carrier"].ToString().ToLower() != "dhl") ? row["carrier"].ToString().ToLower() : "dhl-pieceid";
+                req.Content = new FormUrlEncodedContent(new Dictionary<string, string>
+                {
+                    ["tracking_number"] = row["tracking"].ToString(), // required
+                    ["slug"] = slugId, // required
+                    ["source"] = "Josh",
+                });
+
+                using (var client = new HttpClient())
+                {
+                    var res = await client.SendAsync(req);
+                    string json = await res.Content.ReadAsStringAsync();
+                }
+                req.Dispose();
+                Thread.Sleep(120);
+            }
+
+            MessageBox.Show("Completed", "Successfully Pushed!");
+        }
+
+        /// <summary>
+        /// Get all shipments held in API server
+        /// </summary>
+        /// <returns>Datatable with all shipments</returns>
+        public async void GetAllShipments()
+        {
+
+            var req = new HttpRequestMessage(HttpMethod.Get, this.Url+ "?pageId=1&limit=200");
             req.Headers.Add("Authorization", this.Token);
             req.Headers.Add("Accept", "application/json");
-            req.Content = new FormUrlEncodedContent(new Dictionary<string, string>
-            {
-                ["slug"] = "usps", // required
-                ["tracking_number"] = "12341234", // required
-                ["customer_name"] = "", // an array of strings of names
-                ["customer_emails"] = "",// an array of strings of emails to recieve tracking updates
-                ["source"] = "", // origin shipment is coming from
-                ["origin_country"] = ""
-            });
-
+            var resJsonString = "";
             using (var client = new HttpClient())
             {
                 var res = await client.SendAsync(req);
-                string json = await res.Content.ReadAsStringAsync();
+                resJsonString = await res.Content.ReadAsStringAsync();
             }
+            req.Dispose();
+
+            //var parsedResponse = JsonConvert.DeserializeObject(resJsonString);
+
+            JToken token = JToken.Parse(resJsonString);
+            JArray data = (JArray)token.SelectToken("data");
+            foreach (var shipment in data)
+            {
+                var trackingNumber = shipment["tracking_number"].ToString() ?? "";
+                var pickupDate = shipment["trackings"]["shipment_pickup_date"].ToString() ?? "";
+                var expectedDelivery = shipment["trackings"]["expected_delivery"].ToString() ?? "";
+                var slug = shipment["slug"].ToString().ToUpper() ?? "";
+                if (slug.ToLower() == "dhl-pieceid") {
+                    slug = "DHL";
+                }
+                else if (slug == "FEDEX") {
+                    slug = "FedEx";
+                }
+
+                Shipment shipmentToAdd = new Shipment(trackingNumber, pickupDate, expectedDelivery, slug, "1");
+                shipmentToAdd.addShipment();
+            }
+            
+            Console.WriteLine(data.ToString());
+            //var dt = new DataTable();
+
+            //var req = new HttpRequestMessage(HttpMethod.Post, this.Url);
+            //req.Headers.Add("Authorization", this.Token);
+            //req.Headers.Add("Accept", "application/json");
+
+            //return dt;
         }
+
+        public class Statuses {
+            public static string OutForDelivery = "OutForDelivery";
+            public static string InTransit = "InTransit";
+            public static string Delivered = "Delivered";
+            public static string Exception = "Exception";
+            public static string InfoReceived = "InfoReceived";
+            public static string FailedAttempt = "FailedAttempt";
+            public static string Pending = "Pending";
+            public static string Expired = "Expired";
+        }
+
         /* holds all of the different object that can be used for api request at the /trackings endpoint
         public class Rootobject
         {
@@ -152,10 +243,6 @@ namespace RMaD.Classes
             public int zip { get; set; }
             public string location { get; set; }
         }
-            */
-        // POST
-        // COMPARE
-        // GET
-        // CREATE INVITE
+        */
     }
 }
