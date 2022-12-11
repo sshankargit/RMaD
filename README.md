@@ -7,7 +7,7 @@ This application can accommodate up to 10 users and allows you to create user gr
 
 Written in C# using [.NETFramework v. 4.6.1 and 4.7.2](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks?cid=getdotnetsdk) and the [Trackhive API](https://www.trackhive.co/), this application uses the SQLite database to store and manage all your package information.
 
-To use this application, you will need to have the SQLite engine installed on your system. You can find instructions on how to install the SQLite engine here.
+To use this application, you will need to have the SQLite engine installed on your system. You can find instructions on how to install the SQLite engine [here](https://github.com/CSC-470-Project/RMaD/wiki/Documentation#database).
 
 Once you have the SQLite engine installed, you can clone this repository and run the application on your local machine.
 
