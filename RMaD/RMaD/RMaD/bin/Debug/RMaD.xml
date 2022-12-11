@@ -21,6 +21,7 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:RMaD.Classes.APIHandler.#ctor(System.String,System.String,System.String)">
             <summary>
             Create a handler for POST and GET connections for an API.
@@ -50,6 +51,8 @@
             For for displaying account creation fields
             </summary>
         </member>
+=======
+>>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
         <member name="F:RMaD.CreateAccount.components">
             <summary>
             Required designer variable.
@@ -111,12 +114,6 @@
             enable the buttons needed to change to those panels.
             </summary>
             <param name="panel">Index of panel being changed to</param>
-        </member>
-        <member name="M:RMaD.UxForm.newShipment(System.Int32)">
-            <summary>
-            Creates a new shipment button within the Flow Layout Panel.
-            </summary>
-            <param name="shipNum">The index of the new button</param>
         </member>
         <member name="M:RMaD.UxForm.populateDataGridView">
             <summary>
