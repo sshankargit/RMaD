@@ -62,7 +62,7 @@ namespace RMaD.Classes
             {
                 ["tracking_number"] = shipmentToPost.TrackNumber, // required
                 ["slug"] = slugId, // required
-                ["source"] = "Josh",
+                ["source"] = "RMaD",
             });
 
             using (var client = new HttpClient())
