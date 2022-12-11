@@ -72,8 +72,6 @@ namespace RMaD.Classes
             }
             req.Dispose();
             Thread.Sleep(120);
-
-            MessageBox.Show("Completed", "Successfully Pushed!");
         }
 
         /// <summary>
