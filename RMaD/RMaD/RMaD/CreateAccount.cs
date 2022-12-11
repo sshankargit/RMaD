@@ -11,9 +11,6 @@ using RMaD.Classes;
 
 namespace RMaD
 {
-    /// <summary>
-    /// For for displaying account creation fields
-    /// </summary>
     public partial class CreateAccount : Form
     {
         public CreateAccount()
