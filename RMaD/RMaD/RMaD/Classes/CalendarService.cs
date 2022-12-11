@@ -11,29 +11,29 @@ using Google.Apis.Services;
 
 namespace GoogleCalendarEvents
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Load the private key file
-            var credPath = "path/to/private/key/file.json";
-            var cred = GoogleCredential.FromFile(credPath)
-                .CreateScoped(CalendarService.Scope.Calendar);
+    //class GoogleCalendarEvents
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        // Load the private key file
+    //        var credPath = "path/to/private/key/file.json";
+    //        var cred = GoogleCredential.FromFile(credPath)
+    //            .CreateScoped(CalendarService.Scope.Calendar);
 
-            // Use the credentials to authenticate the service account
-            var service = new CalendarService(new BaseClientService.Initializer
-            {
-                HttpClientInitializer = cred
-            });
+    //        // Use the credentials to authenticate the service account
+    //        var service = new CalendarService(new BaseClientService.Initializer
+    //        {
+    //            HttpClientInitializer = cred
+    //        });
 
-            // Use the calendar service to access Google Calendar events
-            var events = service.Events.List("primary").Execute();
-            foreach (var ev in events.Items)
-            {
-                Console.WriteLine("{0} ({1})", ev.Summary, ev.Start.DateTime);
-            }
-        }
-    }
+    //        // Use the calendar service to access Google Calendar events
+    //        var events = service.Events.List("primary").Execute();
+    //        foreach (var ev in events.Items)
+    //        {
+    //            Console.WriteLine("{0} ({1})", ev.Summary, ev.Start.DateTime);
+    //        }
+    //    }
+    //}
 }
 
 //In the code above, the GoogleCredential.FromFile method is used to load the private key 
@@ -47,27 +47,27 @@ namespace CalendarAPI
 {
     public static class CalendarInvite
     {
-        public static Event CreateShippingEvent(string trackingNumber, DateTime shippingDate,
-                                                string shippingStatus, string shippingLocation,
-                                                DateTime deliveryDate)
-        {
-            var shippingEvent = new Event
-            {
-                Summary = $"Package Tracking: {trackingNumber}",
-                Location = shippingLocation,
-                Start = new EventDateTime
-                {
-                    DateTime = shippingDate
-                },
-                End = new EventDateTime
-                {
-                    DateTime = deliveryDate
-                },
-                Description = $"Shipping status: {shippingStatus}"
-            };
+        //public static Event CreateShippingEvent(string trackingNumber, DateTime shippingDate,
+        //                                        string shippingStatus, string shippingLocation,
+        //                                        DateTime deliveryDate)
+        //{
+        //    var shippingEvent = new Event
+        //    {
+        //        Summary = $"Package Tracking: {trackingNumber}",
+        //        Location = shippingLocation,
+        //        Start = new EventDateTime
+        //        {
+        //            DateTime = shippingDate
+        //        },
+        //        End = new EventDateTime
+        //        {
+        //            DateTime = deliveryDate
+        //        },
+        //        Description = $"Shipping status: {shippingStatus}"
+        //    };
 
-            return shippingEvent;
-        }
+        //    return shippingEvent;
+        //}
     }
 }
 
