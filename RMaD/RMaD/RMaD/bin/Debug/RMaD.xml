@@ -29,6 +29,11 @@
             <param name="endpoint">Endpoint for making specific calls to API</param>
             <param name="token">Developer token from Trackhive</param>
         </member>
+        <member name="M:RMaD.Classes.APIHandler.PostShipment(RMaD.Classes.Shipment)">
+            <summary>
+            posts one shipment to API server
+            </summary>
+        </member>
         <member name="M:RMaD.Classes.APIHandler.PostAllShipments">
             <summary>
             posts all shipments to API server

@@ -31,7 +31,7 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UxForm));
             this.pnlShipments = new System.Windows.Forms.Panel();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -149,9 +149,9 @@ namespace RMaD
             this.dataGridViewShipment.Name = "dataGridViewShipment";
             this.dataGridViewShipment.ReadOnly = true;
             this.dataGridViewShipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewShipment.Size = new System.Drawing.Size(574, 563);
             this.dataGridViewShipment.TabIndex = 2;
             // 
