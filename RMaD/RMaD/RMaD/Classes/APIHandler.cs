@@ -12,10 +12,10 @@ using System.Data.Common;
 using Newtonsoft.Json;
 using System.Threading;
 using Newtonsoft.Json.Linq;
+using System.Data.SqlClient;
 
 namespace RMaD.Classes
 {
-
     internal class APIHandler
     {
         private string _token;
@@ -48,22 +48,40 @@ namespace RMaD.Classes
         }
 
         /// <summary>
+        /// posts one shipment to API server
+        /// </summary>
+        public async Task PostShipment(Shipment shipmentToPost)
+        {
+
+            var req = new HttpRequestMessage(HttpMethod.Post, this.Url);
+            req.Headers.Add("Authorization", this.Token);
+            req.Headers.Add("Accept", "application/json");
+
+            var slugId = (shipmentToPost.Carrier.ToLower() == "dhl") ? "dhl-pieceid" : shipmentToPost.Carrier.ToLower();
+            req.Content = new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                ["tracking_number"] = shipmentToPost.TrackNumber, // required
+                ["slug"] = slugId, // required
+                ["source"] = "Josh",
+            });
+
+            using (var client = new HttpClient())
+            {
+                var res = await client.SendAsync(req);
+                string json = await res.Content.ReadAsStringAsync();
+            }
+            req.Dispose();
+            Thread.Sleep(120);
+
+            MessageBox.Show("Completed", "Successfully Pushed!");
+        }
+
+        /// <summary>
         /// posts all shipments to API server
         /// </summary>
         public async void PostAllShipments()
         {
-            DatabaseAccess databaseObject = new DatabaseAccess();
-            databaseObject.OpenConnection();
-            DataTable dt = new DataTable();
-
-            string sqlQuery = "select S.tracking_id as [Tracking], S.shipped_on as [Shipped Date], S.arrive_on as [Arrival Date], SC.shipping_company_name as [Carrier], SS.status as Status " +
-                        "from SHIPMENT S " +
-                        "INNER JOIN SHIPPING_COMPANY SC on S.shipping_company_id = SC.shipping_company_id " +
-                        "INNER JOIN SHIPMENT_STATUS SS on S.shipment_status_id = SS.shipment_status_id " +
-            "order by S.shipment_id DESC";
-
-            SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);
-            sqdt.Fill(dt);
+            DataTable dt = getLocalDatabase();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -133,25 +151,171 @@ namespace RMaD.Classes
             }
             
             Console.WriteLine(data.ToString());
-            //var dt = new DataTable();
-
-            //var req = new HttpRequestMessage(HttpMethod.Post, this.Url);
-            //req.Headers.Add("Authorization", this.Token);
-            //req.Headers.Add("Accept", "application/json");
-
-            //return dt;
         }
 
-        public class Statuses {
-            public static string OutForDelivery = "OutForDelivery";
-            public static string InTransit = "InTransit";
-            public static string Delivered = "Delivered";
-            public static string Exception = "Exception";
-            public static string InfoReceived = "InfoReceived";
-            public static string FailedAttempt = "FailedAttempt";
-            public static string Pending = "Pending";
-            public static string Expired = "Expired";
+        public async Task compareDBWithAPI()
+        {
+            // Get Json of Shipments from API
+            var req = new HttpRequestMessage(HttpMethod.Get, this.Url + "?pageId=1&limit=200");
+            req.Headers.Add("Authorization", this.Token);
+            req.Headers.Add("Accept", "application/json");
+            var resJsonString = "";
+            using (var client = new HttpClient())
+            {
+                var res = await client.SendAsync(req);
+                resJsonString = await res.Content.ReadAsStringAsync();
+            }
+            req.Dispose();
+
+            // create datatable from API Shipments
+            var apiTable = new DataTable();
+            var initTable = new DataColumn();
+            initTable.ColumnName = "Tracking";
+            initTable.DataType = typeof(string);
+            apiTable.Columns.Add(initTable);
+            initTable = new DataColumn();
+            initTable.ColumnName = "StatusID";
+            initTable.DataType = typeof(int);
+            apiTable.Columns.Add(initTable);
+            initTable = new DataColumn();
+            initTable.ColumnName = "Shipped Date";
+            initTable.DataType = typeof(string);
+            apiTable.Columns.Add(initTable);
+
+            initTable = new DataColumn();
+            initTable.ColumnName = "Arrival Date";
+            initTable.DataType = typeof(string);
+            apiTable.Columns.Add(initTable);
+
+            initTable = new DataColumn();
+            initTable.ColumnName = "Carrier";
+            initTable.DataType = typeof(string);
+            apiTable.Columns.Add(initTable);
+
+            initTable = new DataColumn();
+            initTable.ColumnName = "Status";
+            initTable.DataType = typeof(string);
+            apiTable.Columns.Add(initTable);
+
+            JToken token = JToken.Parse(resJsonString);
+            JArray data = (JArray)token.SelectToken("data");
+            foreach (var shipment in data)
+            {
+                var row = apiTable.NewRow();
+                var trackingNumber = shipment["tracking_number"].ToString() ?? "";
+                var status = shipment["trackings"]["tag"].ToString() ?? "Pending";
+                var pickupDate = DateTime.Parse(shipment["created"].ToString()).ToString("yyyy-mm-dd") ?? DateTime.Now.ToString("yyyy-mm-dd");
+                var expectedDelivery = shipment["trackings"]["expected_delivery"].ToString();
+                if(string.IsNullOrEmpty(expectedDelivery))
+                {
+                    expectedDelivery = "2022-12-25";
+                }
+                else
+                {
+                    expectedDelivery = DateTime.Parse(expectedDelivery.ToString()).ToString("yyyy-mm-dd");
+                }
+                var slug = shipment["slug"].ToString().ToUpper() ?? "";
+                if (slug.ToLower() == "dhl-pieceid")
+                {
+                    slug = "DHL";
+                }
+                else if (slug == "FEDEX")
+                {
+                    slug = "FedEx";
+                }
+                row["Tracking"] = trackingNumber;
+                row["StatusID"] = (int)Enum.Parse(typeof(Statuses), status);
+                if (status == "InTransit")
+                {
+                    status = "In-Transit";
+                }
+                row["Shipped Date"] = pickupDate;
+                row["Arrival Date"] = expectedDelivery;
+                row["Carrier"] = slug;
+                row["Status"] = status;
+                apiTable.Rows.Add(row);
+            }
+
+            // Compare localTable with apiTable
+            var localTable = getLocalDatabase();
+            int rowsUpdated = 0;
+            int rowsInserted = 0;
+
+            apiTable.DefaultView.Sort = "Tracking";
+            apiTable = apiTable.DefaultView.ToTable();
+            foreach (DataRow row in apiTable.Rows)
+            {
+                // get local database row
+                var localRow = localTable.Rows;
+                var trackingNumber = Int64.Parse(row["Tracking"].ToString());
+                var checkExists = $"SELECT count(*) from SHIPMENT where tracking_id = {trackingNumber}";
+                DatabaseAccess databaseObject = new DatabaseAccess();
+                var sqlCommand = new SQLiteCommand(checkExists, databaseObject.sqlConnection);
+                databaseObject.OpenConnection();
+                var result = Int64.Parse(sqlCommand.ExecuteScalar().ToString());
+                
+                databaseObject.CloseConnection();
+                Shipment rowShipment = new Shipment(row["Tracking"].ToString(),
+                        row["Shipped Date"].ToString(), row["Arrival Date"].ToString(), row["Carrier"].ToString(), row["Status"].ToString());
+                if (result == 0)
+                {
+                    
+                    rowShipment.addShipment();
+                    rowsInserted++;
+                }
+                else
+                {
+                    // update status
+                    rowShipment.updateShipment();
+                    rowsUpdated++;
+                }
+            }
+            // replace current database with updated database
+
+            MessageBox.Show($"{rowsInserted} Rows Inserted\n{rowsUpdated} Rows Updated", "Completed!");
         }
+
+        private DataTable getLocalDatabase()
+        {
+            DatabaseAccess databaseObject = new DatabaseAccess();
+            databaseObject.OpenConnection();
+            DataTable dt = new DataTable();
+
+            string sqlQuery = "select S.tracking_id as [Tracking], S.shipped_on as [Shipped Date], S.arrive_on as [Arrival Date]," +
+                        " SC.shipping_company_name as [Carrier], SS.status as Status, SS.shipment_status_id as [StatusID] " +
+                        "from SHIPMENT S " +
+                        "INNER JOIN SHIPPING_COMPANY SC on S.shipping_company_id = SC.shipping_company_id " +
+                        "INNER JOIN SHIPMENT_STATUS SS on S.shipment_status_id = SS.shipment_status_id " +
+                        "order by S.tracking_id DESC";
+
+            SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);
+            sqdt.Fill(dt);
+
+            return dt;
+        }
+
+        enum Statuses
+        {
+            OutForDelivery = 1,
+            InTransit,
+            Delivered,
+            Exception,
+            InfoReceived,
+            FailedAttempt,
+            Pending,
+            Expired
+        }
+
+        //public class Statuses {
+        //    public static string OutForDelivery = "OutForDelivery";
+        //    public static string InTransit = "InTransit";
+        //    public static string Delivered = "Delivered";
+        //    public static string Exception = "Exception";
+        //    public static string InfoReceived = "InfoReceived";
+        //    public static string FailedAttempt = "FailedAttempt";
+        //    public static string Pending = "Pending";
+        //    public static string Expired = "Expired";
+        //}
 
         /* holds all of the different object that can be used for api request at the /trackings endpoint
         public class Rootobject
@@ -245,4 +409,4 @@ namespace RMaD.Classes
         }
         */
     }
-}
+    }
