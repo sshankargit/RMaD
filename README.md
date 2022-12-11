@@ -1,7 +1,18 @@
 ## Team RMaD
 ### Overview
 
-Team RMaD is a parcel tracker written in C#, using [.NETFramework v. 4.6.1 and 4.7.2](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks?cid=getdotnetsdk) and the [Trackhive API](https://www.trackhive.co/).  This program can track parcels by extracting information from emails about delivery, adding it into a database, creating logs, and giving updates on their parcel.  
+Welcome to RMaD - a database application that allows you to keep track of all your packages. With this application, you can send calendar invites for updates on your packages, view a database of all your packages up to six months, arrange your packages by carrier, and even get alerts and emails when your packages are arriving.
+
+This application can accommodate up to 10 users and allows you to create user groups to easily notify and send out updates to multiple people.
+
+Written in C# using [.NETFramework v. 4.6.1 and 4.7.2](https://dotnet.microsoft.com/en-us/download/visual-studio-sdks?cid=getdotnetsdk) and the [Trackhive API](https://www.trackhive.co/), this application uses the SQLite database to store and manage all your package information.
+
+To use this application, you will need to have the SQLite engine installed on your system. You can find instructions on how to install the SQLite engine here.
+
+Once you have the SQLite engine installed, you can clone this repository and run the application on your local machine.
+
+We hope you enjoy using the RMaD and never lose track of your packages again!
+
 
 ## Changelog
 
