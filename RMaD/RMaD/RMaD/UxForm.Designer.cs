@@ -31,13 +31,13 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UxForm));
             this.pnlShipments = new System.Windows.Forms.Panel();
+            this.dataGridViewShipment = new System.Windows.Forms.DataGridView();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.dataGridViewShipment = new System.Windows.Forms.DataGridView();
             this.btnAddShipment = new System.Windows.Forms.Button();
             this.lblShipments = new System.Windows.Forms.Label();
             this.pnlGroups = new System.Windows.Forms.Panel();
@@ -103,6 +103,25 @@ namespace RMaD
             this.pnlShipments.TabIndex = 0;
             this.pnlShipments.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlShipments_Paint);
             // 
+            // dataGridViewShipment
+            // 
+            this.dataGridViewShipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewShipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewShipment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewShipment.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewShipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewShipment.Location = new System.Drawing.Point(3, 57);
+            this.dataGridViewShipment.Name = "dataGridViewShipment";
+            this.dataGridViewShipment.ReadOnly = true;
+            this.dataGridViewShipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewShipment.Size = new System.Drawing.Size(574, 563);
+            this.dataGridViewShipment.TabIndex = 2;
+            // 
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -136,25 +155,7 @@ namespace RMaD
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewShipment
-            // 
-            this.dataGridViewShipment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewShipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridViewShipment.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewShipment.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewShipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewShipment.Location = new System.Drawing.Point(3, 57);
-            this.dataGridViewShipment.Name = "dataGridViewShipment";
-            this.dataGridViewShipment.ReadOnly = true;
-            this.dataGridViewShipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewShipment.Size = new System.Drawing.Size(574, 563);
-            this.dataGridViewShipment.TabIndex = 2;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAddShipment
             // 
@@ -543,11 +544,11 @@ namespace RMaD
             this.Controls.Add(this.btnReportsMenu);
             this.Controls.Add(this.btnGroupMenu);
             this.Controls.Add(this.btnShipmentMenu);
-            this.Controls.Add(this.pnlReports);
-            this.Controls.Add(this.pnlGroups);
             this.Controls.Add(this.pnlShipments);
             this.Controls.Add(this.pnlSettings);
             this.Controls.Add(this.pnlUser);
+            this.Controls.Add(this.pnlReports);
+            this.Controls.Add(this.pnlGroups);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UxForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

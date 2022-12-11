@@ -73,26 +73,12 @@ namespace RMaD
         {
 
             if (this.lblCreateShipment.Text != "Edit Shipment")
-            {              
-
-<<<<<<< HEAD
-            if (newShipment.trackIDExists())
             {
-                MessageBox.Show("Tracking Number already exists.", "Adding new shipment tracking failed!");
-                return;
-            }
-            else
-            {
-                Boolean addShipment = await newShipment.addShipment();
-                if (addShipment)
-=======
                 if (string.IsNullOrEmpty(mtbTracking.Text))
->>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
                 {
                     MessageBox.Show("Tracking number is required.", "Failed!");
                     return;
                 }
-
                 if (string.IsNullOrEmpty(tbCarrierdpdn.Text))
                 {
                     MessageBox.Show("Shipping carrier is required.", "Failed!");
@@ -108,7 +94,7 @@ namespace RMaD
                 }
                 else
                 {
-                    Boolean addShipment = newShipment.addShipment();
+                    Boolean addShipment = await newShipment.addShipment();
                     if (addShipment)
                     {
                         Utils.emailShipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text);
@@ -120,9 +106,9 @@ namespace RMaD
                     }
                 }
             }
-            else 
+            else
             {
-                Shipment uShipment = new Shipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text,cbStatus.Text);
+                Shipment uShipment = new Shipment(mtbTracking.Text, dtpShipped.Value.Date.ToString("yyyy-MM-dd"), dtpArrival.Value.Date.ToString("yyyy-MM-dd"), tbCarrierdpdn.Text, cbStatus.Text);
                 uShipment.updateShipment(this.originalTrackID);
             }
         }
@@ -135,7 +121,6 @@ namespace RMaD
             this.tbCarrierdpdn.Text = dv.Cells["Carrier"].Value.ToString();
             this.cbStatus.Text = dv.Cells["Status"].Value.ToString();
             this.lblCreateShipment.Text = "Edit Shipment";
-
         }
     }
 }

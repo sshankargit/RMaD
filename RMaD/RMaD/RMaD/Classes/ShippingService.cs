@@ -10,6 +10,7 @@ namespace RMaD.Classes
 {
     internal class ShippingService
     {
+        private string shipStatus;
         private static SQLiteDataReader result;
         private static SQLiteCommand sqlCommand;
         static string sqlQuery;
@@ -84,6 +85,38 @@ namespace RMaD.Classes
             databaseObject.CloseConnection();
 
             return carrierID;
+        }
+
+        public int getStatusID()
+        {
+            DatabaseAccess databaseObject = new DatabaseAccess();
+            sqlQuery = "SELECT shipment_status_id from SHIPMENT_STATUS where status = @status";
+            sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@status", this.shipStatus);
+            databaseObject.OpenConnection();
+            result = sqlCommand.ExecuteReader();
+
+            int statusID = -1;
+
+            if (result.HasRows)
+            {
+                if (result.Read())
+                {
+                    if (result[0].ToString() == string.Empty)
+                    {
+                        result.Close();
+                        databaseObject.CloseConnection();
+                        return -1;
+                    }
+
+                    statusID = int.Parse(result[0].ToString());
+                }
+            }
+
+            result.Close();
+            databaseObject.CloseConnection();
+
+            return statusID;
         }
     }
 }

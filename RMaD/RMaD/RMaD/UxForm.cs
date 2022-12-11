@@ -3,15 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
-<<<<<<< HEAD
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-=======
 using System.Runtime.InteropServices.ComTypes;
->>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
 using System.Windows.Forms;
 
 namespace RMaD
@@ -121,12 +118,7 @@ namespace RMaD
             bool creating = true;
             AddShipment ship = new AddShipment();
             DialogResult drShip = new DialogResult();
-<<<<<<< HEAD
             while(creating == true)
-=======
-
-            while (creating == true)
->>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
             {
                 if (drShip == DialogResult.OK)
                 {
@@ -240,7 +232,7 @@ namespace RMaD
             btnCancelEdit.Enabled = false;
         }
 
-<<<<<<< HEAD
+
         private async void btnRefresh_Click(object sender, EventArgs e)
         {
             User user = new User(LoginInfo.loggedInUser);
@@ -250,13 +242,13 @@ namespace RMaD
             populateDataGridView();
         }
 
-        private async void checkForUpdates(int frequency,bool continueChecking)
+        private async void checkForUpdates(int frequency, bool continueChecking)
         {
             var prevHour = DateTime.Now.Hour;
             while (continueChecking)
             {
                 var currTime = DateTime.Now;
-                if(currTime.Hour != prevHour)
+                if (currTime.Hour != prevHour)
                 {
                     // update database
                     User user = new User(LoginInfo.loggedInUser);
@@ -268,7 +260,8 @@ namespace RMaD
                 }
                 Thread.Sleep(frequency * 60000); // 600000 is one minute in milliseconds
             }
-=======
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             bool creating = true;
@@ -395,7 +388,7 @@ namespace RMaD
                 dgReport.RowHeadersVisible = false;
             }
             databaseObject.CloseConnection();
->>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
         }
+
     }
 }

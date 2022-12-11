@@ -21,7 +21,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-<<<<<<< HEAD
         <member name="M:RMaD.Classes.APIHandler.#ctor(System.String,System.String,System.String)">
             <summary>
             Create a handler for POST and GET connections for an API.
@@ -46,13 +45,6 @@
             </summary>
             <returns>Datatable with all shipments</returns>
         </member>
-        <member name="T:RMaD.CreateAccount">
-            <summary>
-            For for displaying account creation fields
-            </summary>
-        </member>
-=======
->>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
         <member name="F:RMaD.CreateAccount.components">
             <summary>
             Required designer variable.

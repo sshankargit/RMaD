@@ -258,7 +258,7 @@ namespace RMaD.Classes
                 if (result == 0)
                 {
                     
-                    rowShipment.addShipment();
+                    await rowShipment.addShipment();
                     rowsInserted++;
                 }
                 else
@@ -303,8 +303,8 @@ namespace RMaD.Classes
             Pending,
             Expired
         }
-
-        /* 
+        #region
+        /* Class Model For Json
         public class Rootobject
         {
             public Meta meta { get; set; }
@@ -395,5 +395,6 @@ namespace RMaD.Classes
             public string location { get; set; }
         }
         */
+        #endregion
     }
-    }
+}

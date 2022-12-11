@@ -25,7 +25,7 @@ namespace RMaD.Classes
         public string DateShipped { get { return _dateShipped; } }
         public string DateArrival { get { return _dateArrival; } }
         public string Carrier { get { return _carrier; } }
-        public string ShipmentStatus { get { return _shipmentStatus; } }
+        public string ShipmentStatus { get { return _status; } }
 
         private static SQLiteDataReader result;
         private static SQLiteCommand sqlCommand;
@@ -47,17 +47,16 @@ namespace RMaD.Classes
 
 
             sqlQuery = "INSERT INTO SHIPMENT (tracking_id, shipped_on, arrive_on, shipping_company_id,shipment_status_id)" + 
-                      "VALUES(@trackingId, @dateShipped, @dateArrival, @shippingCompany, @shippingStatus)";
+                      "VALUES(@trackNumber, @dateShipped, @dateArrival, @shippingCompany, @shippingStatus)";
 
             try
             {
-                shipServ = new ShippingService(this._carrier);    
-                //int carrierID = shipServ.getCarrierID();//getting carrier ID from database
-                shipStatus = new ShippingStatus(this._status);                
+                shipServ = new ShippingService(this._carrier);
+                shipStatus = new ShippingStatus(this._status);          
 
                 DatabaseAccess databaseObject = new DatabaseAccess();
                 sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@trackingId", this._trackNumber);
+                sqlCommand.Parameters.AddWithValue("@trackNumber", this._trackNumber);
                 sqlCommand.Parameters.AddWithValue("@dateShipped", this._dateShipped);
                 sqlCommand.Parameters.AddWithValue("@dateArrival", this._dateArrival);
                 sqlCommand.Parameters.AddWithValue("@shippingCompany", shipServ.getCarrierID());
@@ -70,7 +69,7 @@ namespace RMaD.Classes
 
                 User user = new User(LoginInfo.loggedInUser);
                 APIHandler apiHandler = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
-                Shipment shipment = new Shipment(this._trackNumber, this._dateShipped, this._dateArrival, this._carrier, this._shipmentStatus);
+                Shipment shipment = new Shipment(this._trackNumber, this._dateShipped, this._dateArrival, this._carrier, this._status);
                 await apiHandler.PostShipment(shipment);
 
                 return true;
@@ -82,18 +81,18 @@ namespace RMaD.Classes
             }
         }
 
-<<<<<<< HEAD
         public Boolean updateShipment()
         {
             sqlQuery = "UPDATE SHIPMENT " +
                       "SET shipped_on = @dateShipped, arrive_on = @dateArrival, shipping_company_id = @shippingCompany, shipment_status_id = @shippingStatus "+
-                      "WHERE tracking_id = @trackingId";
+                      "WHERE tracking_id = @trackNumber";
 
             try
             {
-                ShippingService shipServ = new ShippingService();
-                int carrierID = shipServ.getCarrierID(this._carrier);//getting carrier ID from database
-                int shipStatusId = shipServ.getShipmentStatusID(this._shipmentStatus); // get ship status id
+                shipServ = new ShippingService(this.Carrier);
+                shipStatus = new ShippingStatus(this.ShipmentStatus);
+                int carrierID = shipServ.getCarrierID();//getting carrier ID from database
+                int shipStatusId = shipStatus.getStatusID(); // get ship status id
 
                 if (carrierID < 1)
                 {
@@ -102,7 +101,7 @@ namespace RMaD.Classes
 
                 DatabaseAccess databaseObject = new DatabaseAccess();
                 sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@trackingId", this._trackNumber);
+                sqlCommand.Parameters.AddWithValue("@trackNumber", this._trackNumber);
                 sqlCommand.Parameters.AddWithValue("@dateShipped", this._dateShipped);
                 sqlCommand.Parameters.AddWithValue("@dateArrival", this._dateArrival);
                 sqlCommand.Parameters.AddWithValue("@shippingCompany", carrierID);
@@ -110,13 +109,7 @@ namespace RMaD.Classes
 
                 databaseObject.OpenConnection();
                 sqlCommand.ExecuteNonQuery();
-
                 databaseObject.CloseConnection();
-
-                User user = new User(LoginInfo.loggedInUser);
-                APIHandler apiHandler = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
-                Shipment shipment = new Shipment(this._trackNumber, this._dateShipped, this._dateArrival, this._carrier, this._shipmentStatus);
-                await apiHandler.PostShipment(shipment);
 
                 return true;
             }
@@ -127,7 +120,6 @@ namespace RMaD.Classes
             }
         }
 
-=======
         public void updateShipment(string originalTrackID)
         {
             sqlQuery = "UPDATE SHIPMENT SET shipped_on = @shipdt, arrive_on = @arrdt, shipping_company_id = @shipID, shipment_status_id=@shipStatus, tracking_id = @trackID " + 
@@ -185,8 +177,6 @@ namespace RMaD.Classes
             //sreturn res;
         }
 
-
->>>>>>> 7f2e44210bd540e7d915051efb052ca71f951a5c
         public Boolean trackIDExists()
         {
             Boolean recExists = false;
