@@ -179,18 +179,22 @@ namespace RMaD.Classes
             initTable.ColumnName = "Shipped Date";
             initTable.DataType = typeof(string);
             apiTable.Columns.Add(initTable);
+
             initTable = new DataColumn();
             initTable.ColumnName = "Arrival Date";
             initTable.DataType = typeof(string);
             apiTable.Columns.Add(initTable);
+
             initTable = new DataColumn();
             initTable.ColumnName = "Carrier";
             initTable.DataType = typeof(string);
             apiTable.Columns.Add(initTable);
+
             initTable = new DataColumn();
             initTable.ColumnName = "Status";
             initTable.DataType = typeof(string);
             apiTable.Columns.Add(initTable);
+
             JToken token = JToken.Parse(resJsonString);
             JArray data = (JArray)token.SelectToken("data");
             foreach (var shipment in data)
@@ -265,6 +269,7 @@ namespace RMaD.Classes
                 }
             }
             // replace current database with updated database
+
             MessageBox.Show($"{rowsInserted} Rows Inserted\n{rowsUpdated} Rows Updated", "Completed!");
         }
 
