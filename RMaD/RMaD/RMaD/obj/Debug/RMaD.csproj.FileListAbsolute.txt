@@ -99,3 +99,17 @@ C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Calendar.v3.
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Core.pdb
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Core.xml
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Auth.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Auth.PlatformServices.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Calendar.v3.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Core.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Auth.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Auth.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Calendar.v3.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Calendar.v3.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Core.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Google.Apis.Core.xml

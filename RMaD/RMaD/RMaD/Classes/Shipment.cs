@@ -21,6 +21,12 @@ namespace RMaD.Classes
         private string _carrier;
         private string _status;
 
+        public string TrackNumber { get { return _trackNumber; } }
+        public string DateShipped { get { return _dateShipped; } }
+        public string DateArrival { get { return _dateArrival; } }
+        public string Carrier { get { return _carrier; } }
+        public string ShipmentStatus { get { return _status; } }
+
         private static SQLiteDataReader result;
         private static SQLiteCommand sqlCommand;
         static string sqlQuery;
@@ -37,21 +43,20 @@ namespace RMaD.Classes
             _status = status;
         }
 
-        public Boolean addShipment() {     
+        public async Task<Boolean> addShipment() {     
 
 
             sqlQuery = "INSERT INTO SHIPMENT (tracking_id, shipped_on, arrive_on, shipping_company_id,shipment_status_id)" + 
-                      "VALUES(@trackingId, @dateShipped, @dateArrival, @shippingCompany, @shippingStatus)";
+                      "VALUES(@trackNumber, @dateShipped, @dateArrival, @shippingCompany, @shippingStatus)";
 
             try
             {
-                shipServ = new ShippingService(this._carrier);    
-                //int carrierID = shipServ.getCarrierID();//getting carrier ID from database
-                shipStatus = new ShippingStatus(this._status);                
+                shipServ = new ShippingService(this._carrier);
+                shipStatus = new ShippingStatus(this._status);          
 
                 DatabaseAccess databaseObject = new DatabaseAccess();
                 sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
-                sqlCommand.Parameters.AddWithValue("@trackingId", this._trackNumber);
+                sqlCommand.Parameters.AddWithValue("@trackNumber", this._trackNumber);
                 sqlCommand.Parameters.AddWithValue("@dateShipped", this._dateShipped);
                 sqlCommand.Parameters.AddWithValue("@dateArrival", this._dateArrival);
                 sqlCommand.Parameters.AddWithValue("@shippingCompany", shipServ.getCarrierID());
@@ -62,11 +67,55 @@ namespace RMaD.Classes
 
                 databaseObject.CloseConnection();
 
+                User user = new User(LoginInfo.loggedInUser);
+                APIHandler apiHandler = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
+                Shipment shipment = new Shipment(this._trackNumber, this._dateShipped, this._dateArrival, this._carrier, this._status);
+                await apiHandler.PostShipment(shipment);
+
                 return true;
             }
             catch (Exception e)
             {
                 System.Windows.Forms.MessageBox.Show(e.Message, "Add new shipment failed.");
+                return false;
+            }
+        }
+
+        public Boolean updateShipment()
+        {
+            sqlQuery = "UPDATE SHIPMENT " +
+                      "SET shipped_on = @dateShipped, arrive_on = @dateArrival, shipping_company_id = @shippingCompany, shipment_status_id = @shippingStatus "+
+                      "WHERE tracking_id = @trackNumber";
+
+            try
+            {
+                shipServ = new ShippingService(this.Carrier);
+                shipStatus = new ShippingStatus(this.ShipmentStatus);
+                int carrierID = shipServ.getCarrierID();//getting carrier ID from database
+                int shipStatusId = shipStatus.getStatusID(); // get ship status id
+
+                if (carrierID < 1)
+                {
+                    MessageBox.Show("Carrier does not exist in the system.", "New shipment add failed!");
+                }
+
+                DatabaseAccess databaseObject = new DatabaseAccess();
+                sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@trackNumber", this._trackNumber);
+                sqlCommand.Parameters.AddWithValue("@dateShipped", this._dateShipped);
+                sqlCommand.Parameters.AddWithValue("@dateArrival", this._dateArrival);
+                sqlCommand.Parameters.AddWithValue("@shippingCompany", carrierID);
+                sqlCommand.Parameters.AddWithValue("@shippingStatus", shipStatusId);
+
+                databaseObject.OpenConnection();
+                sqlCommand.ExecuteNonQuery();
+                databaseObject.CloseConnection();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message, "Update shipment failed.");
                 return false;
             }
         }
@@ -127,7 +176,6 @@ namespace RMaD.Classes
 
             //sreturn res;
         }
-
 
         public Boolean trackIDExists()
         {

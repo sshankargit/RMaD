@@ -3,6 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Runtime.InteropServices.ComTypes;
 using System.Windows.Forms;
 
@@ -43,6 +48,8 @@ namespace RMaD
             buttonList.Add(btnReportsMenu);
             buttonList.Add(btnUserMenu);
             buttonList.Add(btnSettingsMenu);
+
+           
 
             //this._shipments = this.flpShipments.Controls.Count;
             changePanel(0);
@@ -111,8 +118,7 @@ namespace RMaD
             bool creating = true;
             AddShipment ship = new AddShipment();
             DialogResult drShip = new DialogResult();
-
-            while (creating == true)
+            while(creating == true)
             {
                 if (drShip == DialogResult.OK)
                 {
@@ -224,6 +230,36 @@ namespace RMaD
             btnEditUser.Text = "Edit";
             btnCancelEdit.Visible = false;
             btnCancelEdit.Enabled = false;
+        }
+
+
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            User user = new User(LoginInfo.loggedInUser);
+            APIHandler newShipment = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
+            await newShipment.compareDBWithAPI();
+            Thread.Sleep(1000);
+            populateDataGridView();
+        }
+
+        private async void checkForUpdates(int frequency, bool continueChecking)
+        {
+            var prevHour = DateTime.Now.Hour;
+            while (continueChecking)
+            {
+                var currTime = DateTime.Now;
+                if (currTime.Hour != prevHour)
+                {
+                    // update database
+                    User user = new User(LoginInfo.loggedInUser);
+                    APIHandler newShipment = new APIHandler("https://api.trackinghive.com", "/trackings", user.Token());
+                    await newShipment.compareDBWithAPI();
+                    Thread.Sleep(1000);
+                    populateDataGridView();
+
+                }
+                Thread.Sleep(frequency * 60000); // 600000 is one minute in milliseconds
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -353,5 +389,6 @@ namespace RMaD
             }
             databaseObject.CloseConnection();
         }
+
     }
 }
