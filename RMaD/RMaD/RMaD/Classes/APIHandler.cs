@@ -202,7 +202,7 @@ namespace RMaD.Classes
                 var row = apiTable.NewRow();
                 var trackingNumber = shipment["tracking_number"].ToString() ?? "";
                 var status = shipment["trackings"]["tag"].ToString() ?? "Pending";
-                var pickupDate = DateTime.Parse(shipment["created"].ToString()).ToString("yyyy-mm-dd") ?? DateTime.Now.ToString("yyyy-mm-dd");
+                var pickupDate = DateTime.Parse(shipment["created"].ToString()).ToString("yyyy-MM-dd") ?? DateTime.Now.ToString("yyyy-MM-dd");
                 var expectedDelivery = shipment["trackings"]["expected_delivery"].ToString();
                 if(string.IsNullOrEmpty(expectedDelivery))
                 {
@@ -210,7 +210,7 @@ namespace RMaD.Classes
                 }
                 else
                 {
-                    expectedDelivery = DateTime.Parse(expectedDelivery.ToString()).ToString("yyyy-mm-dd");
+                    expectedDelivery = DateTime.Parse(expectedDelivery.ToString()).ToString("yyyy-MM-dd");
                 }
                 var slug = shipment["slug"].ToString().ToUpper() ?? "";
                 if (slug.ToLower() == "dhl-pieceid")
