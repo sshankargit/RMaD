@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -68,7 +69,11 @@ namespace RMaD
         {
 
         }
-
+        /// <summary>
+        /// Create shipment object and calls add shipment method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void btnAddShipment_Click(object sender, EventArgs e)
         {
 
@@ -113,9 +118,13 @@ namespace RMaD
             }
         }
 
+        /// <summary>
+        /// Populate Edit shipment form data from the selected shipment in data view grid.
+        /// </summary>
+        /// <param name="dv"></param>
         public void populateEditForm(DataGridViewRow dv)
         {            
-            this.mtbTracking.Text = dv.Cells["Tracking"].Value.ToString();
+            this.mtbTracking.Text = dv.Cells["Tracking"].Value.ToString();                        
             this.dtpShipped.Text = dv.Cells["Shipped Date"].Value.ToString();
             this.dtpArrival.Text = dv.Cells["Arrival Date"].Value.ToString();
             this.tbCarrierdpdn.Text = dv.Cells["Carrier"].Value.ToString();

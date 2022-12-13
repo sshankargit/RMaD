@@ -11,8 +11,19 @@ using System.Threading;
 using System.Windows.Forms;
 
 namespace RMaD.Classes{
+
+    /// <summary>
+    /// Helper class for non object tasks
+    /// </summary>
     public static class Utils
-    {       
+    {  
+        /// <summary>
+        /// Email new shipment details to the user
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="trackingNum"></param>
         public static void sendEmail(string body, string from, string to, string trackingNum)         
         {
             try
@@ -39,7 +50,13 @@ namespace RMaD.Classes{
                 MessageBox.Show("Email failed!");
             }            
         }
-
+        /// <summary>
+        /// Collect shipment information and send email.
+        /// </summary>
+        /// <param name="trackingID"></param>
+        /// <param name="shipDt"></param>
+        /// <param name="arrDt"></param>
+        /// <param name="carrier"></param>
         public static void emailShipment(string trackingID, string shipDt, string arrDt, string carrier) {
             string Body = System.IO.File.ReadAllText("./EmailTemplate/email.html");
             Body = Body.Replace("%status%", "Shipped");
