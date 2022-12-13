@@ -12,7 +12,6 @@ namespace RMaD.Classes
     {
         private string _username;
         private string _password;
-        private string _token;
 
         private static SQLiteDataReader result;
         private static SQLiteCommand sqlCommand;
@@ -63,8 +62,7 @@ namespace RMaD.Classes
 
         }
         public static void logout() 
-        { 
-
+        {
         }
     }
 }

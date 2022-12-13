@@ -48,8 +48,10 @@ namespace RMaD.Classes
         }
 
         /// <summary>
-        /// posts one shipment to API server
+        /// Post a new shipment to the API server
         /// </summary>
+        /// <param name="shipmentToPost">New shipment of type Shipment</param>
+        /// <returns>N/A</returns>
         public async Task PostShipment(Shipment shipmentToPost)
         {
 
@@ -75,7 +77,7 @@ namespace RMaD.Classes
         }
 
         /// <summary>
-        /// posts all shipments to API server
+        /// posts all shipments from the local database to the API server
         /// </summary>
         public async void PostAllShipments()
         {
@@ -85,7 +87,6 @@ namespace RMaD.Classes
             {
                 var row = dt.Rows[i];
                 var req = new HttpRequestMessage(HttpMethod.Post, this.Url);
-                //var req = new HttpRequestMessage(HttpMethod.Post, "https://private-anon-2c521532d5-trackhive.apiary-mock.com/");
                 req.Headers.Add("Authorization", this.Token);
                 req.Headers.Add("Accept", "application/json");
 
@@ -151,10 +152,17 @@ namespace RMaD.Classes
             Console.WriteLine(data.ToString());
         }
 
+        /// <summary>
+        /// Pulls down all of the shipments in the API server and compares them to the current database.
+        /// If a shipment is not in the database it will be added. If a shipment already exists in the 
+        /// database the shipment will be updated.
+        /// </summary>
+        /// <returns>N/A</returns>
         public async Task compareDBWithAPI()
         {
             // Get Json of Shipments from API
             var req = new HttpRequestMessage(HttpMethod.Get, this.Url + "?pageId=1&limit=200");
+            int counter = 0;
             req.Headers.Add("Authorization", this.Token);
             req.Headers.Add("Accept", "application/json");
             var resJsonString = "";
@@ -195,8 +203,11 @@ namespace RMaD.Classes
             initTable.DataType = typeof(string);
             apiTable.Columns.Add(initTable);
 
+            // Retrieve data in a readable format from Json
             JToken token = JToken.Parse(resJsonString);
             JArray data = (JArray)token.SelectToken("data");
+
+            // create a DataTable for comparing with the local database
             foreach (var shipment in data)
             {
                 var row = apiTable.NewRow();
@@ -204,9 +215,11 @@ namespace RMaD.Classes
                 var status = shipment["trackings"]["tag"].ToString() ?? "Pending";
                 var pickupDate = DateTime.Parse(shipment["created"].ToString()).ToString("yyyy-MM-dd") ?? DateTime.Now.ToString("yyyy-MM-dd");
                 var expectedDelivery = shipment["trackings"]["expected_delivery"].ToString();
-                if(string.IsNullOrEmpty(expectedDelivery))
+                if (string.IsNullOrEmpty(expectedDelivery))
                 {
-                    expectedDelivery = "2022-12-25";
+                    expectedDelivery = DateTime.Now.AddDays(10 + counter).ToString("yyyy-MM-dd");
+                    counter++;
+
                 }
                 else
                 {
@@ -239,6 +252,8 @@ namespace RMaD.Classes
             int rowsUpdated = 0;
             int rowsInserted = 0;
 
+            // Compare each shipment to see if the shipment exists. If the shipment exists, update the local database,
+            // and if the shipment doesn't exist, add the shipment to the local database.
             apiTable.DefaultView.Sort = "Tracking";
             apiTable = apiTable.DefaultView.ToTable();
             foreach (DataRow row in apiTable.Rows)
@@ -268,11 +283,14 @@ namespace RMaD.Classes
                     rowsUpdated++;
                 }
             }
-            // replace current database with updated database
 
             MessageBox.Show($"{rowsInserted} Rows Inserted\n{rowsUpdated} Rows Updated", "Completed!");
         }
 
+        /// <summary>
+        /// Creates a DataTable from a query on the local database
+        /// </summary>
+        /// <returns>Am object of type DataTable</returns>
         private DataTable getLocalDatabase()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
@@ -292,6 +310,9 @@ namespace RMaD.Classes
             return dt;
         }
 
+        /// <summary>
+        /// Valid statuses used in the API
+        /// </summary>
         enum Statuses
         {
             OutForDelivery = 1,
@@ -303,6 +324,9 @@ namespace RMaD.Classes
             Pending,
             Expired
         }
+
+        // Model of Information we can recieve from the API
+        // Some of the data doesn't give us valid results
         #region
         /* Class Model For Json
         public class Rootobject

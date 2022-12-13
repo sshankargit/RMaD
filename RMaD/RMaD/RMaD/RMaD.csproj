@@ -181,6 +181,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Images\GroupMenu.png" />
+    <Content Include="Images\HelpButton.png" />
     <Content Include="Images\Refresh.png" />
     <Content Include="Images\ReportMenu.png" />
     <Content Include="Images\Settings.png" />

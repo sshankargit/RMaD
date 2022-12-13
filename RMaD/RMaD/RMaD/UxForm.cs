@@ -49,8 +49,6 @@ namespace RMaD
             buttonList.Add(btnUserMenu);
             buttonList.Add(btnSettingsMenu);
 
-           
-
             //this._shipments = this.flpShipments.Controls.Count;
             changePanel(0);
             populateDataGridView();
@@ -232,7 +230,6 @@ namespace RMaD
             btnCancelEdit.Enabled = false;
         }
 
-
         private async void btnRefresh_Click(object sender, EventArgs e)
         {
             User user = new User(LoginInfo.loggedInUser);
@@ -310,7 +307,6 @@ namespace RMaD
                 editShipmentForm.Show();
             }
         }
-
         private void btnEdit_Click_1(object sender, EventArgs e)
         {
             
@@ -336,7 +332,6 @@ namespace RMaD
             AddShipment editShipmentForm = (AddShipment)sender;            
             populateDataGridView();
         }
-
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (dataGridViewShipment.CurrentRow == null)
@@ -372,7 +367,7 @@ namespace RMaD
             sqlQuery = sqlQuery.Replace("@startDate", dtStartDate.Value.Date.ToString("yyyy-MM-dd"));
             sqlQuery = sqlQuery.Replace("@endDate", dtEndDate.Value.Date.ToString("yyyy-MM-dd"));
 
-            SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);            
+            SQLiteDataAdapter sqdt = new SQLiteDataAdapter(sqlQuery, databaseObject.sqlConnection);
             sqdt.Fill(dt);
 
             if (dt.Rows.Count > 0)
@@ -390,5 +385,9 @@ namespace RMaD
             databaseObject.CloseConnection();
         }
 
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/CSC-470-Project/RMaD/wiki");
+        }
     }
 }
