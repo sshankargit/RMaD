@@ -120,3 +120,10 @@ C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.csproj.CoreCompileI
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.csproj.CopyComplete
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.exe
 C:\DSU\CSC470\Git\Project\RMaD\RMaD\RMaD\RMaD\obj\Debug\RMaD.pdb
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\NuGet.Frameworks.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Reflection.Metadata.dll
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\NuGet.Frameworks.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Owner\source\repos\RMaD\JoshNew\RMaD\RMaD\RMaD\bin\Debug\System.Reflection.Metadata.xml

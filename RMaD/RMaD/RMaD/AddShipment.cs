@@ -123,8 +123,8 @@ namespace RMaD
         /// </summary>
         /// <param name="dv"></param>
         public void populateEditForm(DataGridViewRow dv)
-        {            
-            this.mtbTracking.Text = dv.Cells["Tracking"].Value.ToString();                        
+        {
+            this.mtbTracking.Text = dv.Cells["Tracking"].Value.ToString();
             this.dtpShipped.Text = dv.Cells["Shipped Date"].Value.ToString();
             this.dtpArrival.Text = dv.Cells["Arrival Date"].Value.ToString();
             this.tbCarrierdpdn.Text = dv.Cells["Carrier"].Value.ToString();

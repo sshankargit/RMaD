@@ -31,7 +31,7 @@ namespace RMaD
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UxForm));
             this.pnlShipments = new System.Windows.Forms.Panel();
             this.dataGridViewShipment = new System.Windows.Forms.DataGridView();
@@ -66,6 +66,7 @@ namespace RMaD
             this.pbProfilePic = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.pnlSettings = new System.Windows.Forms.Panel();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.lblSettins = new System.Windows.Forms.Label();
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.btnSettingsMenu = new System.Windows.Forms.Button();
@@ -116,9 +117,9 @@ namespace RMaD
             this.dataGridViewShipment.Name = "dataGridViewShipment";
             this.dataGridViewShipment.ReadOnly = true;
             this.dataGridViewShipment.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewShipment.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewShipment.Size = new System.Drawing.Size(574, 563);
             this.dataGridViewShipment.TabIndex = 2;
             // 
@@ -150,7 +151,7 @@ namespace RMaD
             // 
             this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.Image = global::RMaD.Properties.Resources.Refresh;
-            this.btnRefresh.Location = new System.Drawing.Point(508, 10);
+            this.btnRefresh.Location = new System.Drawing.Point(528, 8);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(40, 40);
             this.btnRefresh.TabIndex = 3;
@@ -267,11 +268,17 @@ namespace RMaD
             // 
             // dgReport
             // 
+            this.dgReport.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgReport.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgReport.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReport.GridColor = System.Drawing.SystemColors.Control;
             this.dgReport.Location = new System.Drawing.Point(10, 331);
             this.dgReport.Name = "dgReport";
+            this.dgReport.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgReport.Size = new System.Drawing.Size(558, 373);
             this.dgReport.TabIndex = 5;
             // 
@@ -450,12 +457,23 @@ namespace RMaD
             this.pnlSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlSettings.Controls.Add(this.btnHelp);
             this.pnlSettings.Controls.Add(this.lblSettins);
             this.pnlSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlSettings.Location = new System.Drawing.Point(77, 2);
             this.pnlSettings.Name = "pnlSettings";
             this.pnlSettings.Size = new System.Drawing.Size(580, 707);
             this.pnlSettings.TabIndex = 4;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Image = global::RMaD.Properties.Resources.HelpButton;
+            this.btnHelp.Location = new System.Drawing.Point(179, 27);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(31, 33);
+            this.btnHelp.TabIndex = 1;
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // lblSettins
             // 
@@ -610,5 +628,6 @@ namespace RMaD
         private System.Windows.Forms.DateTimePicker dtStartDate;
         private System.Windows.Forms.Label lblEplanation;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnHelp;
     }
 }

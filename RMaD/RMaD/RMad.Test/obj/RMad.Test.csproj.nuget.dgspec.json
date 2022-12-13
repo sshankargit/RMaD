@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj": {}
+    "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj": {}
   },
   "projects": {
-    "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj": {
+    "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj",
         "projectName": "RMad.Test",
-        "projectPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj",
-        "packagesPath": "C:\\Users\\ssampath\\.nuget\\packages\\",
-        "outputPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD.Test\\obj\\",
+        "projectPath": "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD.Test\\RMad.Test.csproj",
+        "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD.Test\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ssampath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net472": {
             "targetAlias": "net472",
             "projectReferences": {
-              "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj": {
-                "projectPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj"
+              "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD\\RMaD.csproj": {
+                "projectPath": "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD\\RMaD.csproj"
               }
             }
           }
@@ -69,11 +74,11 @@
         }
       }
     },
-    "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj": {
+    "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD\\RMaD.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj",
+        "projectUniqueName": "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD\\RMaD.csproj",
         "projectName": "RMaD",
-        "projectPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj",
+        "projectPath": "C:\\Users\\Owner\\source\\repos\\RMaD\\JoshNew\\RMaD\\RMaD\\RMaD\\RMaD.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}

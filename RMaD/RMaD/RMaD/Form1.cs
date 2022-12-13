@@ -102,7 +102,7 @@ namespace RMaD
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button(object sender, EventArgs e)
         {
             GoogleCalendarEvents gc = new GoogleCalendarEvents();
         }

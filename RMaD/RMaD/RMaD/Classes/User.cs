@@ -15,7 +15,6 @@ namespace RMaD.Classes
     /// </summary>
     internal class User
     {
-
         private string _firstname;
         private string _lastname;
         private string _username;
@@ -83,8 +82,6 @@ namespace RMaD.Classes
                 //sqlCommand.Parameters.AddWithValue("@createDate",DateTime.Now.ToString("yyyy-MM-dd"));
                 sqlCommand.Parameters.AddWithValue("@createDate", DateTime.Now.ToString());
                 sqlCommand.Parameters.AddWithValue("@token", this._token);
-
-
 
                 databaseObject.OpenConnection();
                 sqlCommand.ExecuteNonQuery();

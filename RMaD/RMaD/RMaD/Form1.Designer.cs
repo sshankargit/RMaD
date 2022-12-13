@@ -40,15 +40,13 @@ namespace RMaD
             this.llHelp = new System.Windows.Forms.LinkLabel();
             this.btnAccount = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(450, 494);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSubmit.Location = new System.Drawing.Point(225, 257);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(204, 52);
+            this.btnSubmit.Size = new System.Drawing.Size(102, 27);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -56,18 +54,16 @@ namespace RMaD
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(346, 306);
-            this.tbUsername.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbUsername.Location = new System.Drawing.Point(173, 159);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(418, 31);
+            this.tbUsername.Size = new System.Drawing.Size(211, 20);
             this.tbUsername.TabIndex = 0;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(344, 412);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.tbPassword.Location = new System.Drawing.Point(172, 214);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(418, 31);
+            this.tbPassword.Size = new System.Drawing.Size(211, 20);
             this.tbPassword.TabIndex = 1;
             this.tbPassword.UseSystemPasswordChar = true;
             this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
@@ -76,8 +72,7 @@ namespace RMaD
             // 
             this.Title.AutoSize = true;
             this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.Title.Location = new System.Drawing.Point(200, 75);
-            this.Title.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.Title.Location = new System.Drawing.Point(100, 39);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(351, 37);
             this.Title.TabIndex = 5;
@@ -86,30 +81,27 @@ namespace RMaD
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(310, 275);
-            this.lblUsername.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblUsername.Location = new System.Drawing.Point(155, 143);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(116, 25);
+            this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 6;
             this.lblUsername.Text = "Username:";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(308, 381);
-            this.lblPassword.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblPassword.Location = new System.Drawing.Point(154, 198);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(112, 25);
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 7;
             this.lblPassword.Text = "Password:";
             // 
             // llHelp
             // 
             this.llHelp.AutoSize = true;
-            this.llHelp.Location = new System.Drawing.Point(520, 615);
-            this.llHelp.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.llHelp.Location = new System.Drawing.Point(260, 320);
             this.llHelp.Name = "llHelp";
-            this.llHelp.Size = new System.Drawing.Size(56, 25);
+            this.llHelp.Size = new System.Drawing.Size(29, 13);
             this.llHelp.TabIndex = 4;
             this.llHelp.TabStop = true;
             this.llHelp.Text = "Help";
@@ -117,10 +109,9 @@ namespace RMaD
             // 
             // btnAccount
             // 
-            this.btnAccount.Location = new System.Drawing.Point(450, 558);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnAccount.Location = new System.Drawing.Point(225, 290);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(204, 52);
+            this.btnAccount.Size = new System.Drawing.Size(102, 27);
             this.btnAccount.TabIndex = 3;
             this.btnAccount.Text = "Create Account";
             this.btnAccount.UseVisualStyleBackColor = true;
@@ -132,23 +123,12 @@ namespace RMaD
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(801, 558);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 52);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // RMaD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1074, 754);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(537, 392);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.llHelp);
             this.Controls.Add(this.lblPassword);
@@ -158,7 +138,6 @@ namespace RMaD
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.btnSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "RMaD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receiving Mail Daemon";
@@ -180,7 +159,6 @@ namespace RMaD
         private System.Windows.Forms.LinkLabel llHelp;
         private System.Windows.Forms.Button btnAccount;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

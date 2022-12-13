@@ -44,12 +44,14 @@
         </member>
         <member name="M:RMaD.Classes.APIHandler.PostShipment(RMaD.Classes.Shipment)">
             <summary>
-            posts one shipment to API server
+            Post a new shipment to the API server
             </summary>
+            <param name="shipmentToPost">New shipment of type Shipment</param>
+            <returns>N/A</returns>
         </member>
         <member name="M:RMaD.Classes.APIHandler.PostAllShipments">
             <summary>
-            posts all shipments to API server
+            posts all shipments from the local database to the API server
             </summary>
         </member>
         <member name="M:RMaD.Classes.APIHandler.GetAllShipments">
@@ -57,6 +59,25 @@
             Get all shipments held in API server
             </summary>
             <returns>Datatable with all shipments</returns>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.compareDBWithAPI">
+            <summary>
+            Pulls down all of the shipments in the API server and compares them to the current database.
+            If a shipment is not in the database it will be added. If a shipment already exists in the 
+            database the shipment will be updated.
+            </summary>
+            <returns>N/A</returns>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.getLocalDatabase">
+            <summary>
+            Creates a DataTable from a query on the local database
+            </summary>
+            <returns>Am object of type DataTable</returns>
+        </member>
+        <member name="T:RMaD.Classes.APIHandler.Statuses">
+            <summary>
+            Valid statuses used in the API
+            </summary>
         </member>
         <member name="T:RMaD.Classes.Authentication">
             <summary>
@@ -417,6 +438,11 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.HelpButton">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="P:RMaD.Properties.Resources.Refresh">
