@@ -1,0 +1,433 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RMaD</name>
+    </assembly>
+    <members>
+        <member name="M:RMaD.AddShipment.btnAddShipment_Click(System.Object,System.EventArgs)">
+            <summary>
+            Create shipment object and calls add shipment method.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:RMaD.AddShipment.populateEditForm(System.Windows.Forms.DataGridViewRow)">
+            <summary>
+            Populate Edit shipment form data from the selected shipment in data view grid.
+            </summary>
+            <param name="dv"></param>
+        </member>
+        <member name="F:RMaD.AddShipment.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.AddShipment.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.AddShipment.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Create a handler for POST and GET connections for an API.
+            </summary>
+            <param name="url">Base url for connecting to API</param>
+            <param name="endpoint">Endpoint for making specific calls to API</param>
+            <param name="token">Developer token from Trackhive</param>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.PostShipment(RMaD.Classes.Shipment)">
+            <summary>
+            posts one shipment to API server
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.PostAllShipments">
+            <summary>
+            posts all shipments to API server
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.APIHandler.GetAllShipments">
+            <summary>
+            Get all shipments held in API server
+            </summary>
+            <returns>Datatable with all shipments</returns>
+        </member>
+        <member name="T:RMaD.Classes.Authentication">
+            <summary>
+            Class for User authentication
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.Authentication.login">
+            <summary>
+            Method to login a user
+            Validate username existance in the database
+            Convert password string to hash and compare with the password hash stored for the user.
+            Login user if password hash matches
+            </summary>
+            <returns>login success flag</returns>
+        </member>
+        <member name="T:RMaD.Classes.DatabaseAccess">
+            <summary>
+            Database access class
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.DatabaseAccess.#ctor">
+            <summary>
+            Constructor which connects to SQLite database
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.DatabaseAccess.OpenConnection">
+            <summary>
+            Open database connection to SQLite database
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.DatabaseAccess.CloseConnection">
+            <summary>
+            Close database connection
+            </summary>
+        </member>
+        <member name="T:RMaD.Classes.LoginInfo">
+            <summary>
+            Store logged in username    
+            </summary>
+        </member>
+        <member name="T:RMaD.Classes.PasswordEncryption">
+            <summary>
+            Password encryption class
+            Bcrypt password encryption is used
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.PasswordEncryption.GetRandomSalt">
+            <summary>
+            Generate random salt for password encryption
+            </summary>
+            <returns>random string</returns>
+        </member>
+        <member name="M:RMaD.Classes.PasswordEncryption.HashPassword(System.String)">
+            <summary>
+            Generate password hash        
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RMaD.Classes.PasswordEncryption.ValidatePassword(System.String,System.String)">
+            <summary>
+            Validate password login
+            </summary>
+            <param name="password"></param>
+            <param name="correctHash"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RMaD.Classes.Shipment">
+            <summary>
+            Class for creating shipment object
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor creates shipment object
+            </summary>
+            <param name="trackNumber"></param>
+            <param name="dateShipped"></param>
+            <param name="dateArrival"></param>
+            <param name="carrier"></param>
+            <param name="status"></param>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.addShipment">
+            <summary>
+            Gets shipment information from add shipment form and adds into database
+            </summary>
+            <returns>Shipment add status true/false</returns>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.updateShipment">
+            <summary>
+            Updates existing shipment
+            Gets details from update shipment form and modify existing shipment record
+            </summary>
+            <returns>Update shipment status true/false </returns>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.updateShipment(System.String)">
+            <summary>
+            Update shipment using orignal tacking id
+            Refresh shipments data grid view
+            </summary>
+            <param name="originalTrackID"></param>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.deleteShipment">
+            <summary>
+            Delete the selected shipment from database
+            Update shipment data grid view
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.trackIDExists">
+            <summary>
+            Check if trackig ID already exists when adding a shipment
+            If the tracking ID arready exists the shipment will not be added
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RMaD.Classes.Shipment.trackIDExists(System.String)">
+            <summary>
+            Test class for checking tracking number exists
+            </summary>
+            <param name="trackNum"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RMaD.Classes.ShippingService">
+            <summary>
+            Shipping service object class
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.ShippingService.loadShippingServList">
+            <summary>
+            Populate shipping services in carrier drop down in Add shipping form
+            </summary>
+            <returns>List of shipping services</returns>
+        </member>
+        <member name="M:RMaD.Classes.ShippingService.getCarrierID">
+            <summary>
+            Get carried ID from database 
+            </summary>
+            <returns>Carrier ID</returns>        
+        </member>
+        <member name="T:RMaD.Classes.ShippingStatus">
+            <summary>
+            Shipping status object class
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.ShippingStatus.loadShippingStatus">
+            <summary>
+            Populate shipping status in Add new shipment form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RMaD.Classes.ShippingStatus.getStatusID">
+            <summary>
+            Get shipment status ID from database
+            </summary>
+            <returns>shipment status ID</returns>
+        </member>
+        <member name="T:RMaD.Classes.User">
+            <summary>
+            User object class
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.User.addUser">
+            <summary>
+            Add new user into database
+            </summary>
+            <returns>true=success;false=fail</returns>
+        </member>
+        <member name="M:RMaD.Classes.User.userExists">
+            <summary>
+            Validate if user already exists in the system before adding it
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RMaD.Classes.User.getUserEmailID">
+            <summary>
+            Get user email ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:RMaD.Classes.User.getUserFname">
+            <summary>
+            Get user firstname
+            </summary>
+            <returns>user first name</returns>
+        </member>
+        <member name="M:RMaD.Classes.User.getUserLname">
+            <summary>
+            Get user last name
+            </summary>
+            <returns>lastname</returns>
+        </member>
+        <member name="M:RMaD.Classes.User.getUserToken">
+            <summary>
+            Get user token
+            </summary>
+            <returns>token</returns>
+        </member>
+        <member name="T:RMaD.Classes.Utils">
+            <summary>
+            Helper class for non object tasks
+            </summary>
+        </member>
+        <member name="M:RMaD.Classes.Utils.sendEmail(System.String,System.String,System.String,System.String)">
+            <summary>
+            Email new shipment details to the user
+            </summary>
+            <param name="body"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="trackingNum"></param>
+        </member>
+        <member name="M:RMaD.Classes.Utils.emailShipment(System.String,System.String,System.String,System.String)">
+            <summary>
+            Collect shipment information and send email.
+            </summary>
+            <param name="trackingID"></param>
+            <param name="shipDt"></param>
+            <param name="arrDt"></param>
+            <param name="carrier"></param>
+        </member>
+        <member name="M:RMaD.CreateAccount.btnSubmit_Click(System.Object,System.EventArgs)">
+            <summary>
+            Create user object and calls add user method.
+            validate account information
+            check username vs current usernames(possibly against emails as well)
+            add to database if no conficts
+            display confirmation that account has been created
+            close form after x second timer (test to see what feel right)
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:RMaD.CreateAccount.btnCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            Close the form on clicking cancel button.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:RMaD.CreateAccount.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.CreateAccount.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.CreateAccount.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:RMaD.RMaD.btnSubmit_Click(System.Object,System.EventArgs)">
+            <summary>
+            On click will check to see if a login is valid. If the login is valid the
+            program will continue with the login process. If the login is invalid the program
+            will add an error message and reprompt the user for a login.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:RMaD.RMaD.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.RMaD.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.RMaD.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:RMaD.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="P:RMaD.UxForm.Shipments">
+            <summary>
+            Counts the amount of shipments in the Flow Layout Panel 
+            countained in the shipments panel
+            </summary>
+        </member>
+        <member name="M:RMaD.UxForm.changePanel(System.Int32)">
+            <summary>
+            Change Panel will show the panel sent to the method and deactivate the button used
+            to change to a new panel. It will then hide the panels that are not in use and will
+            enable the buttons needed to change to those panels.
+            </summary>
+            <param name="panel">Index of panel being changed to</param>
+        </member>
+        <member name="M:RMaD.UxForm.populateDataGridView">
+            <summary>
+            Populate grid with shipments queried from database
+            </summary>
+            <param> </param>
+        </member>
+        <member name="M:RMaD.UxForm.btnEdit_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Open Edit shipment form
+            Create shipment object and call populate shipment method
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:RMaD.UxForm.Form_Closed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            Refresh data grid view after shipment is modified successfully
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:RMaD.UxForm.btnSearch_Click(System.Object,System.EventArgs)">
+            <summary>
+            Populate shipments into data grid view when hitting search button
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:RMaD.UxForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:RMaD.UxForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:RMaD.UxForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:RMaD.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.Refresh">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:RMaD.Properties.Resources.UserProfile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>

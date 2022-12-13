@@ -134,24 +134,7 @@ namespace RMaD
                 }
             }
 
-        }
-
-        /// <summary>
-        /// Creates a new shipment button within the Flow Layout Panel.
-        /// </summary>
-        /// <param name="shipNum">The index of the new button</param>
-        //private void newShipment(int shipNum)
-        //{
-        //    Button btnShipment = new Button();
-        //    btnShipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F,
-        //        System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        //    btnShipment.Name = "btnShipment";
-        //    btnShipment.Size = new System.Drawing.Size(450, 50);
-        //    btnShipment.TabIndex = 1;
-        //    btnShipment.Text = "Shipment " + shipNum.ToString(); // change to data pull from data tables
-        //    btnShipment.UseVisualStyleBackColor = true;
-        //    //flpShipments.Controls.Add(btnShipment);
-        //}
+        }        
 
         /// <summary>
         /// Populate grid with shipments queried from database
@@ -307,6 +290,12 @@ namespace RMaD
                 editShipmentForm.Show();
             }
         }
+        /// <summary>
+        /// Open Edit shipment form
+        /// Create shipment object and call populate shipment method
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEdit_Click_1(object sender, EventArgs e)
         {
             
@@ -327,6 +316,12 @@ namespace RMaD
             editShipmentForm.Show();            
             
         }
+
+        /// <summary>
+        /// Refresh data grid view after shipment is modified successfully
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void Form_Closed(object sender, FormClosedEventArgs e)
         {
             AddShipment editShipmentForm = (AddShipment)sender;            
@@ -350,6 +345,11 @@ namespace RMaD
             populateDataGridView();
         }
 
+        /// <summary>
+        /// Populate shipments into data grid view when hitting search button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             dgReport.DataSource = null;

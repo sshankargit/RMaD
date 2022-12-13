@@ -10,6 +10,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RMaD.Classes
 {
+    /// <summary>
+    /// User object class
+    /// </summary>
     internal class User
     {
         private string _firstname;
@@ -54,7 +57,10 @@ namespace RMaD.Classes
             this._email = getUserEmailID();
             this._token = getUserToken();
         }
-
+        /// <summary>
+        /// Add new user into database
+        /// </summary>
+        /// <returns>true=success;false=fail</returns>
         public Boolean addUser()
         {
             sqlQuery = "INSERT INTO USERS (first_name, last_name, user_name, password,email_address,created_on, token) " +
@@ -91,6 +97,10 @@ namespace RMaD.Classes
             }
         }
 
+        /// <summary>
+        /// Validate if user already exists in the system before adding it
+        /// </summary>
+        /// <returns></returns>
         public Boolean userExists()
         {
             Boolean usrExists = false;
@@ -121,7 +131,10 @@ namespace RMaD.Classes
 
             return usrExists;
         }
-
+        /// <summary>
+        /// Get user email ID
+        /// </summary>
+        /// <returns></returns>
         private string getUserEmailID()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
@@ -153,7 +166,10 @@ namespace RMaD.Classes
 
             return email;
         }
-
+        /// <summary>
+        /// Get user firstname
+        /// </summary>
+        /// <returns>user first name</returns>
         private string getUserFname()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
@@ -185,7 +201,10 @@ namespace RMaD.Classes
 
             return fname;
         }
-
+        /// <summary>
+        /// Get user last name
+        /// </summary>
+        /// <returns>lastname</returns>
         private string getUserLname()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
@@ -217,7 +236,10 @@ namespace RMaD.Classes
 
             return lname;
         }
-
+        /// <summary>
+        /// Get user token
+        /// </summary>
+        /// <returns>token</returns>
         private string getUserToken()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();

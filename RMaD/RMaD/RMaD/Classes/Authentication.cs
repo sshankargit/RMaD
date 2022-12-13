@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace RMaD.Classes
 {
+    /// <summary>
+    /// Class for User authentication
+    /// </summary>
     internal class Authentication
     {
         private string _username;
@@ -26,7 +29,13 @@ namespace RMaD.Classes
             this._username = username; 
             this._password = password;
         }
-        //Login user
+        /// <summary>
+        /// Method to login a user
+        /// Validate username existance in the database
+        /// Convert password string to hash and compare with the password hash stored for the user.
+        /// Login user if password hash matches
+        /// </summary>
+        /// <returns>login success flag</returns>
         public Boolean login()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();
