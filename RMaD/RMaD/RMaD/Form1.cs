@@ -101,5 +101,10 @@ namespace RMaD
                 this.btnSubmit_Click(sender, e);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GoogleCalendarEvents gc = new GoogleCalendarEvents();
+        }
     }
 }

@@ -13,7 +13,10 @@ using System.Windows.Forms.VisualStyles;
 
 namespace RMaD.Classes
 {
-    internal class Shipment
+    /// <summary>
+    /// Class for creating shipment object
+    /// </summary>
+    public class Shipment
     {
         private string _trackNumber;
         private string _dateShipped;
@@ -34,6 +37,14 @@ namespace RMaD.Classes
         private ShippingService shipServ;
         private ShippingStatus shipStatus;
 
+        /// <summary>
+        /// Constructor creates shipment object
+        /// </summary>
+        /// <param name="trackNumber"></param>
+        /// <param name="dateShipped"></param>
+        /// <param name="dateArrival"></param>
+        /// <param name="carrier"></param>
+        /// <param name="status"></param>
         public Shipment(string trackNumber, string dateShipped, string dateArrival, string carrier, string status)
         {
             _trackNumber = trackNumber;
@@ -42,7 +53,11 @@ namespace RMaD.Classes
             _carrier = carrier;
             _status = status;
         }
-
+        
+        /// <summary>
+        /// Gets shipment information from add shipment form and adds into database
+        /// </summary>
+        /// <returns>Shipment add status true/false</returns>
         public async Task<Boolean> addShipment() {     
 
 
@@ -81,6 +96,11 @@ namespace RMaD.Classes
             }
         }
 
+        /// <summary>
+        /// Updates existing shipment
+        /// Gets details from update shipment form and modify existing shipment record
+        /// </summary>
+        /// <returns>Update shipment status true/false </returns>
         public Boolean updateShipment()
         {
             sqlQuery = "UPDATE SHIPMENT " +
@@ -119,7 +139,11 @@ namespace RMaD.Classes
                 return false;
             }
         }
-
+        /// <summary>
+        /// Update shipment using orignal tacking id
+        /// Refresh shipments data grid view
+        /// </summary>
+        /// <param name="originalTrackID"></param>
         public void updateShipment(string originalTrackID)
         {
             sqlQuery = "UPDATE SHIPMENT SET shipped_on = @shipdt, arrive_on = @arrdt, shipping_company_id = @shipID, shipment_status_id=@shipStatus, tracking_id = @trackID " + 
@@ -153,6 +177,10 @@ namespace RMaD.Classes
             //sreturn res;
         }
 
+        /// <summary>
+        /// Delete the selected shipment from database
+        /// Update shipment data grid view
+        /// </summary>
         public void deleteShipment()
         {
             sqlQuery = "DELETE FROM SHIPMENT WHERE tracking_id = @trackID ";
@@ -176,7 +204,11 @@ namespace RMaD.Classes
 
             //sreturn res;
         }
-
+        /// <summary>
+        /// Check if trackig ID already exists when adding a shipment
+        /// If the tracking ID arready exists the shipment will not be added
+        /// </summary>
+        /// <returns></returns>
         public Boolean trackIDExists()
         {
             Boolean recExists = false;
@@ -206,6 +238,89 @@ namespace RMaD.Classes
             }
 
             return recExists;
+        }
+        /// <summary>
+        /// Test class for checking tracking number exists
+        /// </summary>
+        /// <param name="trackNum"></param>
+        /// <returns></returns>
+        public Boolean trackIDExists(string trackNum)
+        {
+            Boolean recExists = false;
+
+            try
+            {
+                DatabaseAccess databaseObject = new DatabaseAccess();
+                sqlQuery = "select * from SHIPMENT where tracking_id =@trackID";
+                sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@trackID", trackNum);
+                databaseObject.OpenConnection();
+                result = sqlCommand.ExecuteReader();
+
+                if (result.HasRows)
+                {
+                    recExists = true;
+                }
+
+                result.Close();
+                databaseObject.CloseConnection();
+            }
+
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message, "Failed.");
+            }
+
+            return recExists;
+        }
+
+        public List<string> getShipmentByTrackID(string trackNum)
+        {
+            Boolean recExists = false;
+            List<string> shipment = new List<string>();
+
+            try
+            {
+                DatabaseAccess databaseObject = new DatabaseAccess();
+                sqlQuery = "select S.tracking_id as [Tracking], S.shipped_on as [Shipped Date], S.arrive_on as [Arrival Date], SC.shipping_company_name as [Carrier], SS.status as Status " +
+                            "from SHIPMENT S " +
+                            "INNER JOIN SHIPPING_COMPANY SC on S.shipping_company_id = SC.shipping_company_id " +
+                            "INNER JOIN SHIPMENT_STATUS SS on S.shipment_status_id = SS.shipment_status_id " +
+                            "where S.tracking_id = @trackID ";
+                           //"order by S.shipment_id DESC";
+                sqlCommand = new SQLiteCommand(sqlQuery, databaseObject.sqlConnection);
+
+                sqlCommand.Parameters.AddWithValue("@trackID", trackNum);
+                databaseObject.OpenConnection();
+                result = sqlCommand.ExecuteReader();
+
+                if (result.HasRows)
+                {
+
+                    while(result.Read())
+                    {
+                        shipment.Add(result[0].ToString());
+                        shipment.Add(result[1].ToString());
+                        shipment.Add(result[2].ToString());
+                        shipment.Add(result[3].ToString());
+                        shipment.Add(result[4].ToString());
+                    }
+                    //recExists = true;
+                    //shipment = new Shipment(result[0].ToString(), result[1].ToString(), result[2].ToString(), result[3].ToString(), result[4].ToString());
+                   
+                }
+
+                result.Close();
+                databaseObject.CloseConnection();
+            }
+
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show(e.Message, "Failed.");
+            }
+
+            return shipment;
         }
 
     }

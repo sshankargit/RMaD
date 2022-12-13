@@ -7,7 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RMaD.Classes
-{
+{   
+    /// <summary>
+    /// Shipping service object class
+    /// </summary>
     internal class ShippingService
     {
         private string shipStatus;
@@ -26,6 +29,10 @@ namespace RMaD.Classes
             this.carrier = carrier;
         }
 
+        /// <summary>
+        /// Populate shipping services in carrier drop down in Add shipping form
+        /// </summary>
+        /// <returns>List of shipping services</returns>
         public List<string> loadShippingServList()
         {
             List<string> shippingServList = new List<string>();
@@ -53,7 +60,10 @@ namespace RMaD.Classes
 
             return shippingServList;
         }
-        //Get carried ID from database
+        /// <summary>
+        /// Get carried ID from database 
+        /// </summary>
+        /// <returns>Carrier ID</returns>        
         public int getCarrierID()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();

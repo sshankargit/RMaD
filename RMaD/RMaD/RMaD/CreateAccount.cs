@@ -17,19 +17,18 @@ namespace RMaD
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Create user object and calls add user method.
+        /// validate account information
+        /// check username vs current usernames(possibly against emails as well)
+        /// add to database if no conficts
+        /// display confirmation that account has been created
+        /// close form after x second timer (test to see what feel right)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            // validate account information
-            // check username vs current usernames(possibly against emails as well)
-            // add to database if no conficts
-            // display confirmation that account has been created
-            // close form after x second timer (test to see what feel right)
-
-            // set to dialog to ok for testing purposes
-            //this.DialogResult = DialogResult.OK;
-            //this.Close();
-
             //Validate Inputs
             if (string.IsNullOrEmpty(tbFirstname.Text))
             {
@@ -85,6 +84,11 @@ namespace RMaD
             
         }
 
+        /// <summary>
+        /// Close the form on clicking cancel button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

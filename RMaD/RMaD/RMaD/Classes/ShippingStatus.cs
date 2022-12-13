@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace RMaD.Classes
 {
+    /// <summary>
+    /// Shipping status object class
+    /// </summary>
     internal class ShippingStatus
     {
         private string shipStatus;
@@ -19,6 +22,10 @@ namespace RMaD.Classes
         public ShippingStatus() { }
         public ShippingStatus(string shipStatus) { this.shipStatus = shipStatus; }
 
+        /// <summary>
+        /// Populate shipping status in Add new shipment form
+        /// </summary>
+        /// <returns></returns>
         public List<string> loadShippingStatus()
         {
             List<string> shippingStatusList = new List<string>();
@@ -45,6 +52,10 @@ namespace RMaD.Classes
             return shippingStatusList;
         }
 
+        /// <summary>
+        /// Get shipment status ID from database
+        /// </summary>
+        /// <returns>shipment status ID</returns>
         public int getStatusID()
         {
             DatabaseAccess databaseObject = new DatabaseAccess();

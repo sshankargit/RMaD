@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\TestProject1\\TestProject1.csproj": {}
+  },
+  "projects": {
+    "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj",
+        "projectName": "RMaD",
+        "projectPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\TestProject1\\TestProject1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\TestProject1\\TestProject1.csproj",
+        "projectName": "TestProject1",
+        "projectPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\ssampath\\.nuget\\packages\\",
+        "outputPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\TestProject1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ssampath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {
+              "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj": {
+                "projectPath": "C:\\DSU\\CSC470\\Git\\Project\\RMaD\\RMaD\\RMaD\\RMaD\\RMaD.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.16.1, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.117, )"
+            },
+            "System.Data.SQLite.Core": {
+              "target": "Package",
+              "version": "[1.0.117, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
